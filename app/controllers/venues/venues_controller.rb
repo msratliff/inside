@@ -33,7 +33,7 @@ class VenuesController < ApplicationController
 	end
 
 	def venue_params
-		params.require(:venue).permit(:name, :email, :password, :password_confirmation)
+		params.require(:venue).permit(:name, :email, :password, :password_confirmation, :name, :street)
 	end
 
 
