@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day_of_week: MyString
+  time: 2017-08-24 10:49:37
+  price: 1
+  venue: one
+
+two:
+  day_of_week: MyString
+  time: 2017-08-24 10:49:37
+  price: 1
+  venue: two
