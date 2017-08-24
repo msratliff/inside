@@ -10,7 +10,7 @@ one:
 
 two:
   name: MyString
-  email: MyString
+  email: lol@mm.co
   password_digest: MyString
   provider: MyString
   uid: MyString

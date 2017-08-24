@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170824144937) do
+ActiveRecord::Schema.define(version: 20170824154301) do
 
   create_table "promotions", force: :cascade do |t|
     t.string "day_of_week"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20170824144937) do
     t.string "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
     t.index ["email"], name: "index_venues_on_email", unique: true
   end
 

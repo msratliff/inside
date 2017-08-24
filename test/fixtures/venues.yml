@@ -2,7 +2,7 @@
 
 one:
   name: MyString
-  email: MyString
+  email: x@y.co
   street: MyString
   city: MyString
   state: MyString
@@ -11,11 +11,11 @@ one:
   longitude: MyString
 
 two:
-  name: MyString
-  email: MyString
-  street: MyString
-  city: MyString
-  state: MyString
-  zipcode: MyString
-  latitude: MyString
-  longitude: MyString
+  street: 549 NW 28th St
+  city: Miami
+  state: FL
+  zipcode: 33127
+  name: Wyncode
+  email: test@t.com
+
+
