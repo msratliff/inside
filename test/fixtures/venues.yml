@@ -3,19 +3,21 @@
 one:
   name: MyString
   email: x@y.co
+  password_digest: MyString
   street: MyString
   city: MyString
   state: MyString
   zipcode: MyString
-  latitude: MyString
-  longitude: MyString
+  latitude: -11.25
+  longitude: 12.1
 
 two:
+  name: Wyncode
+  email: test@t.com
+  password_digest: MyString
   street: 549 NW 28th St
   city: Miami
   state: FL
   zipcode: 33127
-  name: Wyncode
-  email: test@t.com
-
+  
 
