@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  namespace :users do
+    get 'sessions/new'
+  end
+
+  namespace :venues do
+    get 'sessions/new'
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root to: "venues#index"
@@ -7,5 +15,5 @@ Rails.application.routes.draw do
   	resources :promotions
   end
 
-  
+
 end
