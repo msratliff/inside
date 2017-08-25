@@ -1,13 +1,13 @@
 class Venues::SessionsController < ApplicationController
-  	def new
+	def new
 	end
 
 	def create
-	  venue = Venue.find_by_email(params[:email])
+	  venue = Venue.find_by_email!(params[:email])
 	  if venue && venue.authenticate(params[:password])
 	    session[:user_id] = nil
 	    session[:venue_id] = venue.id
-	    redirect_to venue_path, notice: "Logged in!"
+	    redirect_to venue_path(venue.id), notice: "Logged in!"
 	  else
 	    flash.now.alert = "Email or password is invalid"
 	    render "new"

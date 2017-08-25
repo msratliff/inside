@@ -1,19 +1,24 @@
 Rails.application.routes.draw do
+  
+  root to: "venues#index"
+
   namespace :users do
-    get 'sessions/new'
+    resources :sessions, :only => [:new, :destroy, :create]
+    get 'login' => 'sessions#new'
+    get 'logout' => 'sessions#destroy'
   end
 
   namespace :venues do
+    resources :sessions, :only => [:new, :destroy, :create]
     get 'login' => 'sessions#new'
+    get 'logout' => 'sessions#destroy'
   end
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-  root to: "venues#index"
 
   resources :venues do
     resources :promotions
   end
 
+  resources :users
+  
 
 end

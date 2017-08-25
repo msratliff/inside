@@ -1,1 +1,7 @@
 <h1>Venues Index Page</h1>
+
+<ul>
+	<% @venues.each do |venue| %>
+		<li><%= link_to venue.name, venue %></li>
+	<% end %>
+</ul>
