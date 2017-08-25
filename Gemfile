@@ -33,6 +33,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'geocoder', '~> 1.4', '>= 1.4.4'
 gem 'omniauth-facebook'
 
+gem 'jquery-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
