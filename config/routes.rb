@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  namespace :users do
+    get 'sessions/new'
+  end
+
   root to: "venues#index"
 
   namespace :users do
@@ -18,7 +22,7 @@ Rails.application.routes.draw do
     resources :promotions
   end
 
-  resources :users
+  resource :users
   
 
 end

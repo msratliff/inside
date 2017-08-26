@@ -1,12 +1,14 @@
 class VenuesController < ApplicationController
 
 	before_action :set_venue, only: [:show, :edit, :update, :destroy]
+	before_action :authorize, only: [:show, :edit, :update, :destroy, :index]
 
 	def index
 		@venues = Venue.all
 	end
 
 	def show
+		@promotions = Promotion.where(venue_id: @venue.id)
 	end
 
 	def new
