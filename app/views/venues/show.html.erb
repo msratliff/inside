@@ -9,3 +9,12 @@
 <%= @venue.longitude %>
 <%= @venue.latitude %>
 
+
+<ul>
+	<% @promotions.each do |promotion| %>
+		<li><%= promotion.day_of_week %> - <%= promotion.price %></li>
+	<% end %>
+</ul>
+
+
+<%= render 'promotions/form' %>

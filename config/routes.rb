@@ -7,13 +7,13 @@ Rails.application.routes.draw do
   root to: "venues#index"
 
   namespace :users do
-    resources :sessions, :only => [:new, :destroy, :create]
+    resource :sessions, :only => [:new, :destroy, :create]
     get 'login' => 'sessions#new'
     get 'logout' => 'sessions#destroy'
   end
 
   namespace :venues do
-    resources :sessions, :only => [:new, :destroy, :create]
+    resource :sessions, :only => [:new, :destroy, :create]
     get 'login' => 'sessions#new'
     get 'logout' => 'sessions#destroy'
   end

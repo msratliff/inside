@@ -7,6 +7,7 @@ class PromotionsController < ApplicationController
 	end
 
 	def new 
+		@days_of_week = ['Sunday','Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ]
 	end
 
 	def edit

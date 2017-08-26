@@ -1,0 +1,10 @@
+<%= form_for([@venue,Promotion.new]) do |f| %>
+
+	<%= f.label :day_of_week %><br>
+	<%= f.select :day_of_week, ['Sunday','Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ], :prompt => 'Select One' %>
+
+	<%= f.label :price %>
+	<%= f.text_field :price %>
+
+	<%= f.submit %>
+<% end %>
