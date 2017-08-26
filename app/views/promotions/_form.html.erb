@@ -6,5 +6,11 @@
 	<%= f.label :price %>
 	<%= f.text_field :price %>
 
+
+	<%= f.label :time %>
+	<%= f.time_select(:time, {minute_step: 15}) %>
+	
 	<%= f.submit %>
+
 <% end %>
+
