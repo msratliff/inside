@@ -46,6 +46,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'hirb'
   gem 'rails-erd', '~> 1.5', '>= 1.5.2'
+  gem 'faker', '~> 1.6', '>= 1.6.6'
 end
 
 group :development do
