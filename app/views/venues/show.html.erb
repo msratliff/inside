@@ -16,4 +16,6 @@
 </ul>
 
 
-<%= render 'promotions/form' %>
+<% if current_venue %>
+	<%= render 'promotions/form' %>
+<% end %>

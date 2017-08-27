@@ -8,15 +8,36 @@ class PromotionsController < ApplicationController
 
 	def new 
 		@days_of_week = ['Sunday','Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ]
+		@promotion = Promotion.new
 	end
 
 	def edit
 	end
 
 	def create
+		@promotion = Promotion.new(promotion_params)
+
+	    respond_to do |format|
+	      if @promotion.save
+	        format.html { redirect_to @promotion, notice: 'Promotion was successfully created.' }
+	        format.json { render :show, status: :created, location: @promotion }
+	      else
+	        format.html { render :new }
+	        format.json { render json: @promotion.errors, status: :unprocessable_entity }
+	      end
+	    end
 	end
 
 	def update
+		respond_to do |format|
+	      if @promotion.update(promotion_params)
+	        format.html { redirect_to @promotion, notice: 'Promotion was successfully updated.' }
+	        format.json { render :show, status: :ok, location: @promotion }
+	      else
+	        format.html { render :edit }
+	        format.json { render json: @promotion.errors, status: :unprocessable_entity }
+	      end
+    	end
 	end
 
 	def destroy
