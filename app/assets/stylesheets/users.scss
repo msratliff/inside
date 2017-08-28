@@ -1,3 +1,58 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background-color: #30c17d;
+  // color: white;
+}
+#navtop {
+  margin-bottom: 30px;
+}
+
+.form-horizontalb {
+
+  height: 500px;
+  width: 500px;
+  background: #fff;
+  padding-top: 10px;
+  margin-left: 475px;
+  margin-top: 100px;
+  border-radius: 15%;
+  -webkit-box-shadow: -8px 30px 116px -20px rgba(0,0,0,0.75);
+  -moz-box-shadow: -8px 30px 116px -20px rgba(0,0,0,0.75);
+  box-shadow: -8px 30px 116px -20px rgba(0,0,0,0.75);
+
+}
+
+
+body > form > div:nth-child(1) > label > label{
+    margin-left: 215px;
+    margin-top: 100px;
+}
+#email {
+  margin-left: 150px;
+  
+}
+
+body > form > div:nth-child(2) > label > label{
+  margin-left: 200px;
+}
+#password {
+  margin-left: 150px;
+}
+
+body > form > div:nth-child(3) > div > input[type="submit"] {
+  margin-top: 80px;
+  margin-left: 137px;
+  background-color: #30c17d;
+  // border-color: #30c17d;
+  border: none;
+  width: 200px;
+  color: #fff;
+
+}
+
+body > form.form-horizontalb.float-left{
+  background-color: #1f2d27;
+  color: #30c17d;
+}

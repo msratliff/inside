@@ -1,10 +1,10 @@
-<h1>Log In</h1>
 
-<%= form_tag users_sessions_path do %>
-	<p>
+
+<!-- <%= form_tag users_sessions_path do %>
+
 		<%= label_tag :email %>
 		<%= text_field_tag :email %>
-	</p>
+
 
 	<p>
 		<%= label_tag :password %>
@@ -13,10 +13,38 @@
 
 	<p>
 		<%= submit_tag 'Log In' %>
-	</p>
+	</p> -->
+	<form class="form-horizontalb float-left">
+	  <div class="form-group">
+	    <label class="control-label col-sm-2" for="email"><%= label_tag :email %></label>
+	    <div class="col-sm-11">
+	     <i class="fa fa-user" aria-hidden="true"></i> <%= text_field_tag :email %>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label class="control-label col-sm-2" for="pwd"><%= label_tag :password %></label>
+	    <div class="col-sm-11">
+				<%= password_field_tag :password %>
+	    </div>
+	  </div>
+
+	  <!-- <div class="form-group">
+	    <div class="col-sm-offset-2 col-sm-10">
+	      <div class="checkbox">
+	        <label><input type="checkbox"> Remember me</label>
+	      </div>
+	    </div>
+	  </div> -->
+	  <div class="form-group">
+	    <div class="col-sm-offset-2 col-sm-10">
+	      <%= submit_tag 'Log In' %>
+	    </div>
+	  </div>
+	</form>
 
 <% end %>
 
 
-<%= link_to 'Create User Account', new_users_path %>
-<%= link_to 'Venue Login', venues_login_path %>
+
+<!-- <%= link_to 'Create User Account', new_users_path %>
+<%= link_to 'Venue Login', venues_login_path %> -->
