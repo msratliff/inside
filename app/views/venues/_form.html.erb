@@ -11,53 +11,40 @@
     </div>
   <% end %>
 
-	<div>
+    <div class="container">
+      <div class="email">
+        <p><h2><%= form.label :email %></h2></p>
+          <div class="emailform"><%= form.text_field :email %></div>
+      </div>
+          <p><h2><%= form.label :password %></h2></p>
+                 <%= form.password_field :password %>
 
-			<p>
-		    <%= form.label :email %>
-		    <%= form.text_field :email %>
-	  	</p>
-	    
-	    <p>
-	    	<%= form.label :password %>
-				<%= form.password_field :password %>
-			</p>
+          <p><h2><%= form.label :password_confirmation %></h2></p>
+                 <%= form.password_field :password_confirmation %>
 
-			<p>
-				<%= form.label :password_confirmation %>
-				<%= form.password_field :password_confirmation %>
-	  	</p>
-		  
-	  	<p>
-		    <%= form.label :name %>
-		    <%= form.text_field :name %>
-	  	</p>
+  	  	  <p><h2><%= form.label :name %></h2></p>
+                 <%= form.text_field :name %>
 
-	  	<p>
-		    <%= form.label :street %>
-		    <%= form.text_field :street %>
-	  	</p>
+  	  	  <p><h2><%= form.label :street %></h2></p>
+                 <%= form.text_field :street %>
 
-	  	<p>
-		    <%= form.label :city %>
-		    <%= form.text_field :city %>
-	  	</p>
+  	  	  <p><h2><%= form.label :city %></h2></p>
+                 <%= form.text_field :city %>
 
-	  	<p>
-		    <%= form.label :state %>
-		    <%= form.text_field :state %>
-	  	</p>
+  	  	  <p><h2><%= form.label :state %></h2></p>
+                 <%= form.text_field :state %>
 
-	  	<p>
-		    <%= form.label :zipcode %>
-		    <%= form.text_field :zipcode %>
-	  	</p>
+        <div class="zipcode">
+              <p><%= form.label :zipcode %></p>
+                 <%= form.text_field :zipcode %>
+        </div>
 
+  		  <div class="actions">
+  		           <%= form.submit %>
+  		  </div>
+    </div>
 
-
-		  <div class="actions">
-		    <%= form.submit %>
-		  </div>
+  
 
 	</div>
 <% end %>

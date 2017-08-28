@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   root to: "venues#index"
 
   namespace :users do
@@ -18,7 +18,8 @@ Rails.application.routes.draw do
     resources :promotions
   end
 
+  get 'signup' => 'venues#new'
   resources :users
-  
+
 
 end
