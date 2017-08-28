@@ -2,7 +2,7 @@ class Venue < ApplicationRecord
 
 	has_secure_password
 
-	validates :email, uniqueness: {message: "Email address is already in use."}
+	validates :email, presence: true, uniqueness: {message: "Email address is already in use."}
 
 	has_many :promotions
 	

@@ -1,4 +1,3 @@
-
 <%= @venue.name %>
 <%= @venue.email %>
 <%= @venue.street %>
@@ -9,3 +8,14 @@
 <%= @venue.longitude %>
 <%= @venue.latitude %>
 
+
+<ul>
+	<% @promotions.each do |promotion| %>
+		<li><%= promotion.day_of_week %> - <%= promotion.price %></li>
+	<% end %>
+</ul>
+
+
+<% if current_venue %>
+	<%= render 'promotions/form' %>
+<% end %>
