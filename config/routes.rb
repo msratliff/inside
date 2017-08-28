@@ -18,8 +18,7 @@ Rails.application.routes.draw do
     resources :promotions
   end
 
-  get 'signup' => 'venues#new'
-  resources :users
+  resource :users
 
 
 end
