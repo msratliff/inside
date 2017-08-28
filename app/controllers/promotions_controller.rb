@@ -41,6 +41,11 @@ class PromotionsController < ApplicationController
 	end
 
 	def destroy
+		@promotion.destroy
+    respond_to do |format|
+      format.html { redirect_to promotions_url, notice: 'Promotion was successfully destroyed.' }
+      format.json { head :no_content }
+    end
 	end
 
 	private
