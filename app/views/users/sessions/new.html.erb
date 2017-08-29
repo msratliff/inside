@@ -1,50 +1,19 @@
-
-
-<!-- <%= form_tag users_sessions_path do %>
-
-		<%= label_tag :email %>
-		<%= text_field_tag :email %>
-
-
-	<p>
-		<%= label_tag :password %>
-		<%= password_field_tag :password %>
-	</p>
-
-	<p>
-		<%= submit_tag 'Log In' %>
-	</p> -->
-	<form class="form-horizontalb float-left">
-	  <div class="form-group">
-	    <label class="control-label col-sm-2" for="email"><%= label_tag :email %></label>
-	    <div class="col-sm-11">
-	     <i class="fa fa-user" aria-hidden="true"></i> <%= text_field_tag :email %>
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <label class="control-label col-sm-2" for="pwd"><%= label_tag :password %></label>
-	    <div class="col-sm-11">
-				<%= password_field_tag :password %>
-	    </div>
-	  </div>
-
-	  <!-- <div class="form-group">
-	    <div class="col-sm-offset-2 col-sm-10">
-	      <div class="checkbox">
-	        <label><input type="checkbox"> Remember me</label>
-	      </div>
-	    </div>
-	  </div> -->
-	  <div class="form-group">
-	    <div class="col-sm-offset-2 col-sm-10">
-	      <%= submit_tag 'Log In' %>
-	    </div>
-	  </div>
-	</form>
-
-<% end %>
-
-
-
-<!-- <%= link_to 'Create User Account', new_users_path %>
-<%= link_to 'Venue Login', venues_login_path %> -->
+<div class="container col-md-4">
+	<div class="row">
+		<div class="col-md-offset-3 col-md-12">
+			<%= form_tag users_sessions_path do %>
+			  <div class="form-group">
+					<h2>Inside</h2>
+			    <%= text_field_tag :email, nil, class: 'form-control', id: 'exampleInputEmail1', placeholder: 'Email' %>
+				</div>
+			  <div class="form-group">
+			    <%= password_field_tag :password, nil, class: 'form-control', id: 'exampleInputPassword1', placeholder: 'Password' %>
+			  </div>
+					<%= submit_tag 'Submit' %>
+			<% end %>
+			<br />
+			<%= link_to 'Create User Account', new_users_path %>
+			<%= link_to 'Venue Login', venues_login_path %>
+		</div>
+	</div>
+</div>
