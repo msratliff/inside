@@ -1,50 +1,52 @@
-<%= form_with(model: venue, local: true) do |form| %>
-  <% if venue.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(venue.errors.count, "error") %> prohibited this venue from being saved:</h2>
 
-      <ul>
-      <% venue.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+        <%= form_with(model: venue, local: true) do |form| %>
+        <% if venue.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(venue.errors.count, "error") %> prohibited this venue from being saved:</h2>
 
-    <div class="container">
-      <div class="email">
-        <p><h2><%= form.label :email %></h2></p>
-          <div class="emailform"><%= form.text_field :email %></div>
-      </div>
-          <p><h2><%= form.label :password %></h2></p>
-                 <%= form.password_field :password %>
+            <ul>
+            <% venue.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+  <div class="container col-md-4">
+  	<div class="row">
+  		<div class="col-md-offset-3 col-md-12">
+        <div class="container">
+          <div class="email">
+            <p><h2><%= form.label :email %></h2></p>
+              <div class="emailform"><%= form.text_field :email %></div>
+          </div>
+              <p><h2><%= form.label :password %></h2></p>
+                     <%= form.password_field :password %>
 
-          <p><h2><%= form.label :password_confirmation %></h2></p>
-                 <%= form.password_field :password_confirmation %>
+              <p><h2><%= form.label :password_confirmation %></h2></p>
+                     <%= form.password_field :password_confirmation %>
 
-  	  	  <p><h2><%= form.label :name %></h2></p>
-                 <%= form.text_field :name %>
+      	  	  <p><h2><%= form.label :name %></h2></p>
+                     <%= form.text_field :name %>
 
-  	  	  <p><h2><%= form.label :street %></h2></p>
-                 <%= form.text_field :street %>
+      	  	  <p><h2><%= form.label :street %></h2></p>
+                     <%= form.text_field :street %>
 
-  	  	  <p><h2><%= form.label :city %></h2></p>
-                 <%= form.text_field :city %>
+      	  	  <p><h2><%= form.label :city %></h2></p>
+                     <%= form.text_field :city %>
 
-  	  	  <p><h2><%= form.label :state %></h2></p>
-                 <%= form.text_field :state %>
+      	  	  <p><h2><%= form.label :state %></h2></p>
+                     <%= form.text_field :state %>
 
-        <div class="zipcode">
-              <p><%= form.label :zipcode %></p>
-                 <%= form.text_field :zipcode %>
+            <div class="zipcode">
+                  <p><%= form.label :zipcode %></p>
+                     <%= form.text_field :zipcode %>
+            </div>
+
+      		  <div class="actions">
+      		           <%= form.submit %>
+      		 </div>
         </div>
-
-  		  <div class="actions">
-  		           <%= form.submit %>
-  		  </div>
+      </div>
     </div>
-
-
-
-	</div>
+  </div>
 <% end %>

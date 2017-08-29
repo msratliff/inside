@@ -2,7 +2,6 @@
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
       <ul>
       <% user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,32 +9,28 @@
       </ul>
     </div>
   <% end %>
+  <div class="container col-md-4">
+  	<div class="row">
+  		<div class="col-md-offset-3 col-md-12">
+      	<div>
+           <div class="form-group">
+      		    <%= form.text_field :email,  class: 'form-control', placeholder: 'Email' %>
+           </div>
 
-	<div>
+           <div class="form-group">
+        				<%= form.password_field :password, class: 'form-control', placeholder: 'password' %>
+        	 </div>
 
-			<p>
-		    <%= form.label :email %>
-		    <%= form.text_field :email %>
-	  	</p>
+           <div class="form-group">
+        				<%= form.password_field :password_confirmation, class: 'form-control', placeholder: 'password confirmation'%>
+           </div>
 
-	    <p>
-	    	<%= form.label :password %>
-				<%= form.password_field :password %>
-			</p>
-
-			<p>
-				<%= form.label :password_confirmation %>
-				<%= form.password_field :password_confirmation %>
-	  	</p>
-
-	  	<p>
-		    <%= form.label :name %>
-		    <%= form.text_field :name %>
-	  	</p>
-
-		  <div class="actions">
-		    <%= form.submit %>
-		  </div>
-
-	</div>
+      	   <div class="form-group">
+      		    <%= form.text_field :name, class: 'form-control', placeholder: 'full name'%>
+          </div>
+        <%= form.submit %>
+       </div>
+     </div>
+   </div>
+ </div>
 <% end %>
