@@ -4,7 +4,18 @@ class VenuesController < ApplicationController
 	before_action :authorize, only: [:show, :edit, :update, :destroy, :index]
 
 	def index
-		@venues = Venue.all
+		if params[:lat]
+			@venues = Venue.near([params[:lat],params[:long]],2)
+		elsif params[:search] && params[:search] != ""
+			@venues = Venue.near(params[:search],10)
+		else 
+			@venues = []
+		end
+
+		respond_to do |format|
+      format.html {render "index" }
+      format.js {render :partial => "venues" }
+    end
 	end
 
 	def show
@@ -59,7 +70,7 @@ class VenuesController < ApplicationController
 		end
 
 		def venue_params
-			params.require(:venue).permit(:name, :email, :password, :password_confirmation, :street, :city, :state, :zipcode)
+			params.require(:venue).permit(:name, :email, :password, :password_confirmation, :street, :city, :state, :zipcode, :search, :lat, :long)
 		end
 
 end
