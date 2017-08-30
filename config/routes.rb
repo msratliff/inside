@@ -14,14 +14,15 @@ Rails.application.routes.draw do
     get 'logout' => 'sessions#destroy'
   end
 
-  resources :venues do
+    resources :venues do
     resources :promotions
   end
 
   resource :users
-
+  
   get 'venues/signup' => 'venues#new'
   get 'users/signup' => 'users#new'
-  
+
+
 
 end

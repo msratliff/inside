@@ -37,6 +37,7 @@ gem 'geocoder', '~> 1.4', '>= 1.4.4'
 gem 'omniauth-facebook'
 gem 'stripe'
 
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
