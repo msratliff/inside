@@ -3,7 +3,7 @@ class Venues::SessionsController < ApplicationController
 	end
 
 	def create
-	  venue = Venue.find_by_email!(params[:email])
+	  venue = Venue.find_by(email: params[:email])
 	  if venue && venue.authenticate(params[:password])
 	    session[:user_id] = nil
 	    session[:venue_id] = venue.id
