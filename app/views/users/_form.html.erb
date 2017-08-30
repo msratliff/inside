@@ -9,24 +9,24 @@
       </ul>
     </div>
   <% end %>
-  <div class="container col-md-4">
+  <div class="container col-md-4" id="usersignupform">
   	<div class="row">
   		<div class="col-md-offset-3 col-md-12">
       	<div>
            <div class="form-group">
-      		    <%= form.text_field :email,  class: 'form-control', placeholder: 'Email' %>
+      		    <%= form.text_field :email,  class: 'form-control1', placeholder: 'Email' %>
            </div>
 
            <div class="form-group">
-        				<%= form.password_field :password, class: 'form-control', placeholder: 'password' %>
+        				<%= form.password_field :password, class: 'form-control1', placeholder: 'password' %>
         	 </div>
 
            <div class="form-group">
-        				<%= form.password_field :password_confirmation, class: 'form-control', placeholder: 'password confirmation'%>
+        				<%= form.password_field :password_confirmation, class: 'form-control1', placeholder: 'password confirmation'%>
            </div>
 
       	   <div class="form-group">
-      		    <%= form.text_field :name, class: 'form-control', placeholder: 'full name'%>
+      		    <%= form.text_field :name, class: 'form-control1', placeholder: 'full name'%>
           </div>
         <%= form.submit %>
        </div>
