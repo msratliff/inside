@@ -11,6 +11,11 @@ h2 {
   margin-top: 20px;
   padding-bottom: 20px;
 }
+#logo{
+  width: 50%;
+  height: 150px;
+
+}
 
 #exampleInputEmail1 {
   margin-top: 20px;
@@ -18,24 +23,23 @@ h2 {
   color: #30c17d;
 }
 
-.form-control {
+#exampleInputPassword1 {
   background-color: black;
 }
 
-.container.col-md-4 {
+#logincontainer{
   background-color: #1f2d27;
   width: 900px;
   height: 300px;
-  margin-top: 200px;
+  margin-top: 150px;
   border-radius: 10px;
   text-align: center;
-
   -webkit-box-shadow: -8px 30px 116px -20px rgba(0,0,0,0.75);
   -moz-box-shadow: -8px 30px 116px -20px rgba(0,0,0,0.75);
   box-shadow: -8px 30px 116px -20px rgba(0,0,0,0.75);
 }
 
-body > div.container.col-md-4 > div > div > form > input[type="submit"]:nth-child(5) {
+#submit1{
   width: 50%;
   border-radius: 10px;
   border: none;

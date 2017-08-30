@@ -1,0 +1,59 @@
+// // Place all the styles related to the users controller here.
+// // They will automatically be included in application.css.
+// // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background-color: #30c17d;
+}
+
+h2 {
+  text-align: center;
+  color: #30c17d;
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+#logo{
+  width: 50%;
+  height: 150px;
+
+}
+
+#exampleInputEmail2 {
+  margin-top: 20px;
+  background-color: black;
+  color: #30c17d;
+}
+
+#exampleInputPassword2 {
+  background-color: black;
+}
+
+#venuelogincontainer{
+  background-color: #1f2d27;
+  width: 900px;
+  height: 300px;
+  margin-top: 150px;
+  border-radius: 10px;
+  text-align: center;
+
+
+  -webkit-box-shadow: -8px 30px 116px -20px rgba(0,0,0,0.75);
+  -moz-box-shadow: -8px 30px 116px -20px rgba(0,0,0,0.75);
+  box-shadow: -8px 30px 116px -20px rgba(0,0,0,0.75);
+}
+
+#submit2{
+  width: 50%;
+  border-radius: 10px;
+  border: none;
+  background-color: #30c17d;
+
+}
+
+a {
+  color: grey;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #30c17d;
+}
