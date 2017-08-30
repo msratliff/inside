@@ -1,7 +1,13 @@
 <div id="content">
-	<ul>
-		<% @venues.each do |venue| %>
-			<li><%= link_to venue.name, venue %></li>
-		<% end %>
-	</ul>
+	<% @venues.each do |venue| %>
+		<div class="row">	
+			<%= link_to venue do %>
+				<div class="venue-button col-md-12">
+					<%= venue.name %>
+					<br>
+					<%= venue.address %>
+				</div>
+			<% end %>
+		</div>
+	<% end %>
 </div>

@@ -12,5 +12,5 @@ class Venue < ApplicationRecord
   def address
 		[street, city, state, zipcode, 'USA'].compact.join(', ')
   end
-  
+
 end
