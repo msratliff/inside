@@ -19,12 +19,10 @@ Rails.application.routes.draw do
   end
 
   resource :users
-
-<<<<<<< HEAD
-=======
+  
   get 'venues/signup' => 'venues#new'
   get 'users/signup' => 'users#new'
->>>>>>> 0282773a50f9a21523a5fb22512802af4b7d1aa4
-  
+
+
 
 end
