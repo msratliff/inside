@@ -54,7 +54,7 @@ class PromotionsController < ApplicationController
 		@promotion = Promotion.find(params[:id])
 	end
 
-	def post_params
+	def promotion_params
 		params.require(:promotion).permit(:day_of_week, :time, :price)
 	end
 
