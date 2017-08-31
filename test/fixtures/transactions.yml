@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  payment_method: one
+  promotion: one
+
+two:
+  payment_method: two
+  promotion: two
