@@ -1,3 +1,53 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// // Place all the styles related to the users controller here.
+// // They will automatically be included in application.css.
+// // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background-color: #30c17d;
+}
+
+h2 {
+  text-align: center;
+  color: #30c17d;
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+
+#exampleInputEmail1 {
+  margin-top: 20px;
+  background-color: black;
+  color: #30c17d;
+}
+
+.form-control {
+  background-color: black;
+}
+
+.container.col-md-4 {
+  background-color: #1f2d27;
+  width: 900px;
+  height: 300px;
+  margin-top: 200px;
+  border-radius: 10px;
+  text-align: center;
+
+  -webkit-box-shadow: -8px 30px 116px -20px rgba(0,0,0,0.75);
+  -moz-box-shadow: -8px 30px 116px -20px rgba(0,0,0,0.75);
+  box-shadow: -8px 30px 116px -20px rgba(0,0,0,0.75);
+}
+
+body > div.container.col-md-4 > div > div > form > input[type="submit"]:nth-child(5) {
+  width: 50%;
+  border-radius: 10px;
+  border: none;
+  background-color: #30c17d;
+
+}
+
+a {
+  color: grey;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #30c17d;
+}

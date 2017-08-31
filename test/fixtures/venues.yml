@@ -1,15 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  email: x@y.co
-  password_digest: MyString
-  street: MyString
-  city: MyString
-  state: MyString
-  zipcode: MyString
-  latitude: -11.25
-  longitude: 12.1
+  name: Wyn
+  email: a@email.com
+  street: 549 NW 28th St
+  city: Miami
+  state: FL
+  zipcode: 33127
+  password: 1234
 
 two:
   name: Wyncode

@@ -7,7 +7,10 @@ end
 
 gem 'stripe'
 
-gem 'bootstrap-sass'
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.0.0.beta'
+gem 'font-awesome-sass', '~> 4.7.0'
+gem 'bootstrap_form'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
 # Use sqlite3 as the database for Active Record
@@ -34,8 +37,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'geocoder', '~> 1.4', '>= 1.4.4'
 gem 'omniauth-facebook'
+gem 'stripe'
 
-gem 'jquery-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -48,6 +51,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'hirb'
   gem 'rails-erd', '~> 1.5', '>= 1.5.2'
+  gem 'faker', '~> 1.6', '>= 1.6.6'
 end
 
 group :development do

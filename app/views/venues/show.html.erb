@@ -1,11 +1,28 @@
 
-<%= @venue.name %>
-<%= @venue.email %>
-<%= @venue.street %>
-<%= @venue.city %>
-<%= @venue.state %>
-<%= @venue.zipcode %>
+<h2 class="venue-heading"> <%= @venue.name %></h2>
 
-<%= @venue.longitude %>
-<%= @venue.latitude %>
+<div class="venue-address">
+<%= @venue.street %>, <br>
+<%= @venue.city %>, <%= @venue.state %> <%= @venue.zipcode %>
+</div>
+
+<iframe class="venue_google_map"
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBYl8v-DaqCf5siEpRbhdbufAIvt4_T6jQ
+    &q=<%= @venue.address %>" allowfullscreen>
+</iframe>
+
+<% if current_venue %>
+	<%= render 'promotions/form', venue: @venue %>
+<% end %>
+
+
+<% @promotions.each do |promotion| %>
+	<div class="row">	
+		<%# link_to venue_promotion do %>
+			<div class="venue-button col-md-12">
+				<%= promotion.day_of_week %> - <%= promotion.price %>
+			</div>
+		<%# end %>
+	</div>
+<% end %>
 

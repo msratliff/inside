@@ -2,6 +2,8 @@ class Venue < ApplicationRecord
 
 	has_secure_password
 
+	validates :email, presence: true, uniqueness: {message: "Email address is already in use."}
+
 	has_many :promotions
 	
 	geocoded_by :address
@@ -10,5 +12,5 @@ class Venue < ApplicationRecord
   def address
 		[street, city, state, zipcode, 'USA'].compact.join(', ')
   end
-  
+
 end

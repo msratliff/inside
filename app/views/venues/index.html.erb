@@ -1,7 +1,20 @@
-<h1>Venues Index Page</h1>
+<div class="container col-md-8">
+	<div class="row">
+		<p>Find nearby spots to get Inside! </p>
+	</div>
+	<div class="row">
+		<%= form_tag(venues_path, method: :get) do %>
+		  <%= text_field_tag :search , params[:search] %>
+		  <%= submit_tag 'Search', :id=> "search-btn" %>
+		<% end %>
 
-<ul>
-	<% @venues.each do |venue| %>
-		<li><%= link_to venue.name, venue %></li>
-	<% end %>
-</ul>
+		<%= link_to root_path, id: "locate" do %> 
+			<i class="fa fa-crosshairs" aria-hidden="true"></i>
+		<%end%>
+
+	</div>
+</div>
+
+<div class="venues container col-md-12">
+	<%=render 'venues' %>
+</div>
