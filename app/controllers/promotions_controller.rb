@@ -1,6 +1,8 @@
 class PromotionsController < ApplicationController
 
+	before_action :set_venue
 	before_action :set_promotion, only: [:show, :edit, :update,:destroy]
+	before_action :set_time, only: [:create, :update]
 
 
 	def show
@@ -15,29 +17,31 @@ class PromotionsController < ApplicationController
 	end
 
 	def create
-		@promotion = Promotion.new(promotion_params)
+		@promotion = @venue.promotions.create(promotion_params)
+    @promotion.venue_id = current_venue.id
+    @promotion.save
 
-	    respond_to do |format|
-	      if @promotion.save
-	        format.html { redirect_to @promotion, notice: 'Promotion was successfully created.' }
-	        format.json { render :show, status: :created, location: @promotion }
-	      else
-	        format.html { render :new }
-	        format.json { render json: @promotion.errors, status: :unprocessable_entity }
-	      end
-	    end
+		respond_to do |format|
+			if @promotion.save
+        format.html { redirect_to venue_path(params[:venue_id]) }
+        format.json { render :show, status: :created, location: @promotion }
+      else
+        format.html { render :new }
+        format.json { render json: @promotion.errors, status: :unprocessable_entity }
+      end
+    end
 	end
 
 	def update
 		respond_to do |format|
-	      if @promotion.update(promotion_params)
-	        format.html { redirect_to @promotion, notice: 'Promotion was successfully updated.' }
-	        format.json { render :show, status: :ok, location: @promotion }
-	      else
-	        format.html { render :edit }
-	        format.json { render json: @promotion.errors, status: :unprocessable_entity }
-	      end
-    	end
+      if @promotion.update(promotion_params)
+        format.html { redirect_to venue_path }
+        format.json { render :show, status: :ok, location: @promotion }
+      else
+        format.html { render :edit }
+        format.json { render json: @promotion.errors, status: :unprocessable_entity }
+      end
+  	end
 	end
 
 	def destroy
@@ -52,6 +56,14 @@ class PromotionsController < ApplicationController
 
 	def set_promotion
 		@promotion = Promotion.find(params[:id])
+	end
+
+	def set_venue
+		@venue = Venue.find(params[:venue_id])
+	end
+
+	def set_time
+		params[:promotion][:time] = DateTime.new(params[:promotion]["time(1i)"].to_i, params[:promotion]["time(2i)"].to_i, params[:promotion]["time(3i)"].to_i, params[:promotion]["time(4i)"].to_i, params[:promotion]["time(5i)"].to_i)
 	end
 
 	def promotion_params
