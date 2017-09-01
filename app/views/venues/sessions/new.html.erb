@@ -11,6 +11,14 @@
 			  </div>
 					<%= submit_tag 'Submit', id: "submit2" %>
 			<% end %>
+			<em><%= notice %></em><br>
+<% if current_user %>
+  Welcome <%= current_user.name %> you have successfully signed in!<br>
+  <%= link_to "Sign out", logout_path %>
+<% else %>
+  You are so not signed in.<br>
+  <%= link_to "Sign in with facebook", facebook_login_path %><br>
+<% end %>
 			<br />
 			<%= link_to 'Create Venue Account', new_venue_path %>
 			<%= link_to 'User Login', users_login_path %>
