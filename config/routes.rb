@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
   root to: "venues#index"
+  get 'auth/:provider/callback' => 'users/sessions#create'
 
   namespace :users do
     resource :sessions, :only => [:new, :destroy, :create]
     get 'login' => 'sessions#new'
+
+
     get 'logout' => 'sessions#destroy'
   end
 
@@ -21,9 +24,11 @@ Rails.application.routes.draw do
 
   resources :charges
   resource :users
-  
+
   get 'venues/signup' => 'venues#new'
   get 'users/signup' => 'users#new'
+  get 'auth/facebook', as: 'facebook_login'
+
 
 
 

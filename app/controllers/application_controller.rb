@@ -8,7 +8,8 @@ class ApplicationController < ActionController::Base
   def current_venue
     @current_venue ||= Venue.find(session[:venue_id]) if session[:venue_id]
   end
-  
+  private
+
   helper_method :current_user
   helper_method :current_venue
 
