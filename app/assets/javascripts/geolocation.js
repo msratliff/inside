@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function() {
 	
 	
 	// Locate Button Ajax Call
@@ -57,7 +57,6 @@ $(function(){
     	}
     }).done(function(data){
     	var venues = $(data).find('#content');
-      console.log(venues)
     	$('.venues').html(venues)
     });
   });

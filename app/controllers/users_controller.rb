@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authorize, only: [:show, :edit, :update, :destroy]
 
   def show
   end
@@ -32,13 +33,15 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to users_path, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+    if current_user.id = @user.id
+      respond_to do |format|
+        if @user.update(user_params)
+          format.html { redirect_to users_path, notice: 'User was successfully updated.' }
+          format.json { render :show, status: :ok, location: @user }
+        else
+          format.html { render :edit }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -46,10 +49,12 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to root_path, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
+    if current_user.id = @user.id
+      @user.destroy
+      respond_to do |format|
+        format.html { redirect_to root_path, notice: 'User was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 
@@ -63,4 +68,5 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
+
   end

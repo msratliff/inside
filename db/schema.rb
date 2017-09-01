@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170901150521) do
+
+  create_table "payment_methods", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "card_token"
+    t.string "card_last_four"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_payment_methods_on_user_id"
+  end
 
   create_table "promotions", force: :cascade do |t|
     t.string "day_of_week"
@@ -20,6 +30,15 @@ ActiveRecord::Schema.define(version: 20170901150521) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["venue_id"], name: "index_promotions_on_venue_id"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer "payment_method_id"
+    t.integer "promotion_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["payment_method_id"], name: "index_transactions_on_payment_method_id"
+    t.index ["promotion_id"], name: "index_transactions_on_promotion_id"
   end
 
   create_table "users", force: :cascade do |t|

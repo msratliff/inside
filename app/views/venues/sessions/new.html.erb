@@ -1,7 +1,7 @@
 <div class="container col-md-4" id="venuelogincontainer">
 	<div class="row">
 		<div class="col-md-offset-3 col-md-12">
-			<%= form_tag users_sessions_path do %>
+			<%= form_tag venues_sessions_path do %>
 			  <div class="form-group">
 					<h2>Inside</h2>
 			    <%= text_field_tag :email, nil, class: 'form-control', id: 'exampleInputEmail2', placeholder: 'Email' %>
@@ -20,7 +20,7 @@
   <%= link_to "Sign in with facebook", facebook_login_path %><br>
 <% end %>
 			<br />
-			<%= link_to 'Create Venue Account', new_venue_path %>
+			<%= link_to 'Create Venue Account', new_venue_path %> |
 			<%= link_to 'User Login', users_login_path %>
 		</div>
 	</div>

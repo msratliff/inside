@@ -1,8 +1,11 @@
 class User < ApplicationRecord
 
 	has_secure_password
+	has_many :payment_methods
 
-	validates :name, :email, presence: true, uniqueness: {message: "Email address is already in use."}
+
+	validates :email, presence: true, uniqueness: {message: "Email address is already in use."}
+  validates :name, presence: true
 
 	def self.create_from_facebook(auth)
 		User.create!(
@@ -13,5 +16,4 @@ class User < ApplicationRecord
 			password_confirmation: "password" #TODO replace with random password gene
 		)
 	end
-
 end

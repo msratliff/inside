@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     resources :promotions
   end
 
+
+  resources :charges
   resource :users
 
   get 'venues/signup' => 'venues#new'

@@ -1,21 +1,55 @@
-<%= @venue.name %>
-<%= @venue.email %>
-<%= @venue.street %>
-<%= @venue.city %>
-<%= @venue.state %>
-<%= @venue.zipcode %>
-
-<%= @venue.longitude %>
-<%= @venue.latitude %>
+<% if current_venue %>
+	<%= link_to "Edit Account" , edit_venue_path, remote: true %>
+<% end %>
 
 
-<ul>
-	<% @promotions.each do |promotion| %>
-		<li><%= promotion.day_of_week %> - <%= promotion.price %></li>
-	<% end %>
-</ul>
 
+<h2 class="venue-heading"> <%= @venue.name %></h2>
+
+<div class="venue-address">
+<%= @venue.street %>, <br>
+<%= @venue.city %>, <%= @venue.state %> <%= @venue.zipcode %>
+</div>
+
+<iframe class="venue_google_map"
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBYl8v-DaqCf5siEpRbhdbufAIvt4_T6jQ
+    &q=<%= @venue.address %>" allowfullscreen>
+</iframe>
 
 <% if current_venue %>
-	<%= render 'promotions/form' %>
+	<%= render 'promotions/form', venue: @venue %>
 <% end %>
+
+
+<% @promotions.each do |promotion| %>
+	<div class="row">	
+		<%= link_to venue_promotion_path(@venue,promotion), remote: true do %>
+			<div class="venue-button col-md-12">
+				<%= promotion.day_of_week %> - <%= promotion.price %>
+			</div>
+		<% end %>
+	</div>
+<% end %>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Account</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
