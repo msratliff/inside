@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   root to: "venues#index"
-get 'auth/:provider/callback' => 'users/sessions#create'
+  get 'auth/:provider/callback' => 'users/sessions#create'
+
   namespace :users do
     resource :sessions, :only => [:new, :destroy, :create]
     get 'login' => 'sessions#new'

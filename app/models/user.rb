@@ -9,7 +9,7 @@ class User < ApplicationRecord
 			uid: auth['uid'],
 			name: auth['info']['name'],
 			email: auth['info']['email'],
-			password: "password",
+			password: "password",#needed for facebook login 
 			password_confirmation: "password" #TODO replace with random password gene
 		)
 	end

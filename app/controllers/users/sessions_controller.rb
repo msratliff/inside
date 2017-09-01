@@ -16,6 +16,7 @@ class Users::SessionsController < ApplicationController
 	  end
 	end
 
+
   # login
   def fb_create
     # omniauth middleware stores oauth data in the request.env instead of params
