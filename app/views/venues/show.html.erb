@@ -23,11 +23,23 @@
 
 <% @promotions.each do |promotion| %>
 	<div class="row">	
-		<%= link_to venue_promotion_path(@venue,promotion), remote: true do %>
+		
+    <%= link_to venue_promotion_path(@venue,promotion), remote: true do %>
 			<div class="venue-button col-md-12">
 				<%= promotion.day_of_week %> - <%= promotion.price %>
 			</div>
 		<% end %>
+
+    <% if current_venue %>
+      <%= link_to edit_venue_promotion_path(@venue,promotion), remote: true  do %>
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+      <% end %>
+
+      <%= link_to venue_promotion_path(@venue,promotion), data: { confirm: 'Are you sure?' }, method: :delete  do %>
+        <i class="fa fa-times" aria-hidden="true"></i>
+      <% end %>
+    <% end %>
+
 	</div>
 <% end %>
 
@@ -46,10 +58,10 @@
       <div class="modal-body">
         ...
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      <!-- <div class="modal-footer"> -->
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      <!-- </div> -->
     </div>
   </div>
 </div>

@@ -1,7 +1,7 @@
 class PromotionsController < ApplicationController
 
 	before_action :set_promotions_venue
-	before_action :set_promotion, only: [:show, :edit, :update,:destroy]
+	before_action :set_promotion, only: [:show, :edit, :update, :destroy]
 	before_action :set_time, only: [:create, :update]
 
 
@@ -36,7 +36,7 @@ class PromotionsController < ApplicationController
 		if current_venue.id = @venue.id
 			respond_to do |format|
 	      if @promotion.update(promotion_params)
-	        format.html { redirect_to venue_path }
+	        format.html { redirect_to venue_path(current_venue) }
 	        format.json { render :show, status: :ok, location: @promotion }
 	      else
 	        format.html { render :edit }
@@ -50,7 +50,7 @@ class PromotionsController < ApplicationController
 		if current_venue.id = @venue.id
 			@promotion.destroy
 	    respond_to do |format|
-	      format.html { redirect_to promotions_url, notice: 'Promotion was successfully destroyed.' }
+	      format.html { redirect_to venue_path(current_venue), notice: 'Promotion was successfully destroyed.' }
 	      format.json { head :no_content }
 	    end
     end

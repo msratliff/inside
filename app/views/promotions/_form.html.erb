@@ -15,7 +15,7 @@
 	<%= form.select :day_of_week, ['Sunday','Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ], :prompt => 'Select One' %>
 	<br>
 	<%= form.label :price %>
-	<%= form.text_field :price %>
+	<%= form.number_field(:price, min: 1) %>
 	<br>
 	<%= form.label :time %>
 	<%= form.time_select(:time, {minute_step: 15}) %>
