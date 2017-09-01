@@ -1,6 +1,6 @@
 class PromotionsController < ApplicationController
 
-	before_action :set_venue
+	before_action :set_promotions_venue
 	before_action :set_promotion, only: [:show, :edit, :update,:destroy]
 	before_action :set_time, only: [:create, :update]
 
@@ -33,22 +33,26 @@ class PromotionsController < ApplicationController
 	end
 
 	def update
-		respond_to do |format|
-      if @promotion.update(promotion_params)
-        format.html { redirect_to venue_path }
-        format.json { render :show, status: :ok, location: @promotion }
-      else
-        format.html { render :edit }
-        format.json { render json: @promotion.errors, status: :unprocessable_entity }
-      end
-  	end
+		if current_venue.id = @venue.id
+			respond_to do |format|
+	      if @promotion.update(promotion_params)
+	        format.html { redirect_to venue_path }
+	        format.json { render :show, status: :ok, location: @promotion }
+	      else
+	        format.html { render :edit }
+	        format.json { render json: @promotion.errors, status: :unprocessable_entity }
+	      end
+	  	end
+	  end
 	end
 
 	def destroy
-		@promotion.destroy
-    respond_to do |format|
-      format.html { redirect_to promotions_url, notice: 'Promotion was successfully destroyed.' }
-      format.json { head :no_content }
+		if current_venue.id = @venue.id
+			@promotion.destroy
+	    respond_to do |format|
+	      format.html { redirect_to promotions_url, notice: 'Promotion was successfully destroyed.' }
+	      format.json { head :no_content }
+	    end
     end
 	end
 
@@ -58,7 +62,7 @@ class PromotionsController < ApplicationController
 		@promotion = Promotion.find(params[:id])
 	end
 
-	def set_venue
+	def set_promotions_venue
 		@venue = Venue.find(params[:venue_id])
 	end
 
