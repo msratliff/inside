@@ -21,12 +21,12 @@
         <ul class="navbar-nav ml-auto">
           <% if current_user %>
             <li class="nav-item">
-          <%= link_to current_user.email, users_path, class: 'nav-link' %>
-          </li>
+            <%= link_to current_user.email, users_path, class: 'nav-link' %>
+            </li>
           
-          <li class="nav-item">
-            <%= link_to 'logout', users_logout_path, class: "nav-link"  %>
-          </li>
+            <li class="nav-item">
+              <%= link_to 'logout', users_logout_path, class: "nav-link"  %>
+            </li>
           <% end %>
 
           <% if current_venue %>

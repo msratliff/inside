@@ -20,13 +20,13 @@ class VenuesController < ApplicationController
 
 	def show
 		@promotions = Promotion.where(venue_id: @venue.id).order(
-										"CASE day_of_week WHEN 'Sunday' THEN 0 " \
-                    "WHEN 'Monday' THEN 1 " \
-                    "WHEN 'Tuesday' THEN 2 " \
-                    "WHEN 'Wednesday' THEN 3 " \
-                    "WHEN 'Thursday' THEN 4 " \
-                    "WHEN 'Friday' THEN 5 " \
-                    "WHEN 'Saturday' THEN 6 END")
+			"CASE day_of_week WHEN 'Sunday' THEN 0 " \
+	    "WHEN 'Monday' THEN 1 " \
+	    "WHEN 'Tuesday' THEN 2 " \
+	    "WHEN 'Wednesday' THEN 3 " \
+	    "WHEN 'Thursday' THEN 4 " \
+	    "WHEN 'Friday' THEN 5 " \
+	    "WHEN 'Saturday' THEN 6 END")
 	end
 
 	def new
@@ -51,7 +51,8 @@ class VenuesController < ApplicationController
 	end
 	
 	def update
-		respond_to do |format|
+		if current_venue.id == @venue.id
+			respond_to do |format|
 	      if @venue.update(venue_params)
 	        format.html { redirect_to @venue, notice: 'Venue was successfully updated.' }
 	        format.json { render :show, status: :ok, location: @venue }
@@ -59,18 +60,23 @@ class VenuesController < ApplicationController
 	        format.html { render :edit }
 	        format.json { render json: @venue.errors, status: :unprocessable_entity }
 	      end
-    	end
+	  	end
+  	end
 	end
 
 	def destroy
-		@venue.destroy
-    respond_to do |format|
-      format.html { redirect_to venues_url, notice: 'Venue was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+		if current_venue.id == @venue.id
+			@venue.destroy
+	    respond_to do |format|
+	      format.html { redirect_to venues_url, notice: 'Venue was successfully destroyed.' }
+	      format.json { head :no_content }
+	    end
+	  end
 	end
 
 	private
+
+				
 
 		def set_venue
 			@venue = Venue.find(params[:id])

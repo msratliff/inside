@@ -1,3 +1,8 @@
+<% if current_venue %>
+	<%= link_to "Edit Account" , edit_venue_path, remote: true %>
+<% end %>
+
+
 
 <h2 class="venue-heading"> <%= @venue.name %></h2>
 
@@ -18,11 +23,33 @@
 
 <% @promotions.each do |promotion| %>
 	<div class="row">	
-		<%# link_to venue_promotion do %>
+		<%= link_to venue_promotion_path(@venue,promotion), remote: true do %>
 			<div class="venue-button col-md-12">
 				<%= promotion.day_of_week %> - <%= promotion.price %>
 			</div>
-		<%# end %>
+		<% end %>
 	</div>
 <% end %>
 
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Account</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
