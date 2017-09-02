@@ -1,34 +1,45 @@
 class ChargesController < ApplicationController
 	before_action :authorize
+	before_action :set_promotion_charge, only: :create
+	before_action :set_transaction, only: :show
 
+	def index
+		if current_user
+			@transactions = current_user.transactions.all
+		elsif current_venue
+			@transactions = current_venue.transactions.all
+		end
+		
+	end
+
+	def show
+		@transaction = Transaction.find(params[:id])
+	end
 
 	def new
 	end
 
 	def create
-	  # Amount in cents
-	  @amount = 500
+	
+		if current_user.stripe_id.present?
+			charge = ChargeService.create_charge(current_user.stripe_id, @promotion.price*100)
+		else
+			customer = ChargeService.create_customer(params)
+			@user = User.find(current_user.id)
+			@user.stripe_id = customer.id
+			@user.save
+			charge = ChargeService.create_charge(current_user.stripe_id, @promotion.price*100)
+		end
 
-	  customer = Stripe::Customer.create(
-	    :email => params[:stripeEmail],
-	    :source  => params[:stripeToken]
-	  )
+		redirect_to charges_path
 
-	  charge = Stripe::Charge.create(
-	    :customer    => customer.id,
-	    :amount      => @amount,
-	    :description => 'Rails Stripe customer',
-	    :currency    => 'usd'
-	  )
-
-	rescue Stripe::CardError => e
-	  flash[:error] = e.message
-	  redirect_to new_charge_path
 	end
 
-	# private
 
-	# def amount_to_be_charged
-	# 	@amount = 500
-	# end
+	private
+
+	def set_promotion_charge
+		@promotion = Promotion.find(params[:promotion_id])
+	end
+
 end

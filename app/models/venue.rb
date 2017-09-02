@@ -5,6 +5,7 @@ class Venue < ApplicationRecord
 	validates :email, presence: true, uniqueness: {message: "Email address is already in use."}
 
 	has_many :promotions
+	has_many :transactions, through: :promotions
 	
 	geocoded_by :address
 	after_validation :geocode, if: ->(obj){ ["street", "city", "state", "zipcode"].any? { |f| obj.send("#{f}_changed?".to_sym) }  }
