@@ -2,6 +2,7 @@ class ChargesController < ApplicationController
 	before_action :authorize
 	before_action :set_promotion_charge, only: :create
 	before_action :set_transaction, only: :show
+	after_action :create_transaction, only: :create
 
 	def index
 		if current_user
@@ -30,16 +31,20 @@ class ChargesController < ApplicationController
 			@user.save
 			charge = ChargeService.create_charge(current_user.stripe_id, @promotion.price*100)
 		end
-
-		redirect_to charges_path
+	
+		redirect_to charge_path
 
 	end
 
 
 	private
 
-	def set_promotion_charge
-		@promotion = Promotion.find(params[:promotion_id])
-	end
+		def set_promotion_charge
+			@promotion = Promotion.find(params[:promotion_id])
+		end
+
+		def create_transaction
+			@transaction = Transaction.new(promotion_id: @promotion.id, payment_method_id: ____________) 
+		end
 
 end
