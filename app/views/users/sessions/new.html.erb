@@ -12,21 +12,26 @@
 			    <%= password_field_tag :password, nil, class: 'form-control', id: 'exampleInputPassword1', placeholder: 'Password' %>
 			  </div>
 
-				<%= submit_tag 'Submit', id: 'submit1' %>
+				<%= submit_tag 'Submit', id: 'submit1' %> <br>
+				<h5 id="or">or</h5>
 
 				<!-- facebook login path -->
 				<% if current_user %>
 					Welcome <%= current_user.name %> you have successfully signed in!<br>
 					<%= link_to "Sign out", logout_path %>
 				<% else %>
+				<div id="facebook_login">
 					<%= link_to "Sign in with facebook", facebook_login_path %><br>
+				</div>
 				<% end %>
 
 
 			<% end %>
+			<div id="uservenuelogin">
 			<br />
 			<%= link_to 'Create User Account', new_users_path %>
 			<%= link_to 'Venue Login', venues_login_path, id: 'venuelogin' %>
+			</div>
 		</div>
 	</div>
 </div>
