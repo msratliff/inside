@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
 
-  resources :charges
+  resources :charges, only: [:new, :create]
   resource :users
   
   get 'venues/signup' => 'venues#new'
