@@ -71,7 +71,7 @@ class PromotionsController < ApplicationController
 	end
 
 	def promotion_params
-		params.require(:promotion).permit(:nanme, :day_of_week, :time, :price, :description)
+		params.require(:promotion).permit(:name, :day_of_week, :time, :price, :description)
 	end
 
 end

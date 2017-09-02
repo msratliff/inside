@@ -1,2 +1,3 @@
+$('.modal-title').html("<%= @promotion.name %> on <%= @promotion.day_of_week %>");
 $('.modal-body').html("<%= j render 'promotions/info', promotion: @promotion %>");
 $('.modal').modal();
