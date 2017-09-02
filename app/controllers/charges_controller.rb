@@ -1,5 +1,7 @@
 class ChargesController < ApplicationController
-	
+	before_action :authorize
+
+
 	def new
 	end
 
@@ -9,7 +11,7 @@ class ChargesController < ApplicationController
 
 	  customer = Stripe::Customer.create(
 	    :email => params[:stripeEmail],
-	    :source  => params[:stripeToken],
+	    :source  => params[:stripeToken]
 	  )
 
 	  charge = Stripe::Charge.create(
@@ -23,4 +25,10 @@ class ChargesController < ApplicationController
 	  flash[:error] = e.message
 	  redirect_to new_charge_path
 	end
+
+	# private
+
+	# def amount_to_be_charged
+	# 	@amount = 500
+	# end
 end
