@@ -38,9 +38,11 @@ class VenuesController < ApplicationController
 
 	def create
 		@venue = Venue.new(venue_params)
-
+		
     respond_to do |format|
       if @venue.save
+        session[:user_id] = nil
+				session[:venue_id] = @venue.id
         format.html { redirect_to @venue, notice: 'Venue was successfully created.' }
         format.json { render :show, status: :created, location: @venue }
       else
@@ -83,7 +85,7 @@ class VenuesController < ApplicationController
 		end
 
 		def venue_params
-			params.require(:venue).permit(:name, :email, :password, :password_confirmation, :street, :city, :state, :zipcode, :search, :lat, :long)
+			params.require(:venue).permit(:name, :email, :password, :password_confirmation, :street, :city, :state, :zipcode, :search, :lat, :long, :description)
 		end
 
 end

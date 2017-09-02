@@ -2,13 +2,27 @@
 	<%= link_to "Edit Account" , edit_venue_path, remote: true %>
 <% end %>
 
-
-
 <h2 class="venue-heading"> <%= @venue.name %></h2>
 
 <div class="venue-address">
 <%= @venue.street %>, <br>
 <%= @venue.city %>, <%= @venue.state %> <%= @venue.zipcode %>
+</div>
+
+<div class="venue-description">
+  <div id="venue-description-display">
+    <%= @venue.description %>
+  </div>
+
+  <div id="edit-desc-form", style="display:none">
+    <%= render 'description', venue: @venue %>
+  </div>
+
+  <% if current_venue %>
+    <%= link_to "Edit Description", "#", id: "desc-edit", remote: true %>
+      <!-- <i class="fa fa-pencil" aria-hidden="true"></i> -->
+    <%# end %>
+  <% end %>
 </div>
 
 <iframe class="venue_google_map"
@@ -65,3 +79,5 @@
     </div>
   </div>
 </div>
+
+
