@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170901224706) do
 
   create_table "payment_methods", force: :cascade do |t|
