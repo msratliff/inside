@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
-ActiveRecord::Schema.define(version: 20170901150521) do
+ActiveRecord::Schema.define(version: 20170901224706) do
 
   create_table "payment_methods", force: :cascade do |t|
     t.integer "user_id"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20170901150521) do
     t.integer "venue_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.text "description"
     t.index ["venue_id"], name: "index_promotions_on_venue_id"
   end
 
@@ -65,6 +67,7 @@ ActiveRecord::Schema.define(version: 20170901150521) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.text "description"
     t.index ["email"], name: "index_venues_on_email", unique: true
   end
 

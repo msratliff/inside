@@ -2,13 +2,27 @@
 	<%= link_to "Edit Account" , edit_venue_path, remote: true %>
 <% end %>
 
-
-
 <h2 class="venue-heading"> <%= @venue.name %></h2>
 
 <div class="venue-address">
 <%= @venue.street %>, <br>
 <%= @venue.city %>, <%= @venue.state %> <%= @venue.zipcode %>
+</div>
+
+<div class="venue-description">
+  <div id="venue-description-display">
+    <%= @venue.description %>
+  </div>
+
+  <div id="edit-desc-form", style="display:none">
+    <%= render 'description', venue: @venue %>
+  </div>
+
+  <% if current_venue %>
+    <%= link_to "Edit Description", "#", id: "desc-edit", remote: true %>
+      <!-- <i class="fa fa-pencil" aria-hidden="true"></i> -->
+    <%# end %>
+  <% end %>
 </div>
 
 <iframe class="venue_google_map"
@@ -23,11 +37,23 @@
 
 <% @promotions.each do |promotion| %>
 	<div class="row">	
-		<%= link_to venue_promotion_path(@venue,promotion), remote: true do %>
+		
+    <%= link_to venue_promotion_path(@venue,promotion), remote: true do %>
 			<div class="venue-button col-md-12">
 				<%= promotion.day_of_week %> - <%= promotion.price %>
 			</div>
 		<% end %>
+
+    <% if current_venue %>
+      <%= link_to edit_venue_promotion_path(@venue,promotion), remote: true  do %>
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+      <% end %>
+
+      <%= link_to venue_promotion_path(@venue,promotion), data: { confirm: 'Are you sure?' }, method: :delete  do %>
+        <i class="fa fa-times" aria-hidden="true"></i>
+      <% end %>
+    <% end %>
+
 	</div>
 <% end %>
 
@@ -46,10 +72,12 @@
       <div class="modal-body">
         ...
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      <!-- <div class="modal-footer"> -->
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      <!-- </div> -->
     </div>
   </div>
 </div>
+
+
