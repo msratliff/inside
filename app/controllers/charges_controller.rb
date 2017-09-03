@@ -35,6 +35,7 @@ class ChargesController < ApplicationController
 		end
 
 		create_payment_method(charge)
+		confirmation_code
 		create_transaction
 		redirect_to charge_path(@transaction.id)
 
@@ -51,8 +52,13 @@ class ChargesController < ApplicationController
 			@payment_method = PaymentMethod.find_or_create_by(user_id: current_user.id, card_token: charge[:source][:id], card_last_four: charge[:source][:last4])
 		end
 
+		def confirmation_code
+			
+		end
+
 		def create_transaction
-			@transaction = Transaction.create(promotion_id: @promotion.id, payment_method_id: @payment_method.id) 
+			@transaction = Transaction.create(promotion_id: @promotion.id, payment_method_id: @payment_method.id, confirmation_code: @confirmation_code)
+
 		end
 
 end
