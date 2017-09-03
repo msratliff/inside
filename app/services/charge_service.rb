@@ -7,11 +7,12 @@ class ChargeService
 	  )
 	end
 	
-	def self.create_charge(customer_id,amount)
+	def self.create_charge(customer_id, amount, charge_description)
+
 	  charge = Stripe::Charge.create(
 	    :customer    => customer_id,
 	    :amount      => amount,
-	    :description => 'Rails Stripe customer',
+	    :description => charge_description,
 	    :currency    => 'usd'
 	  )
 
