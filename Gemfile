@@ -5,8 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'stripe'
-
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.0.0.beta'
 gem 'font-awesome-sass', '~> 4.7.0'
@@ -36,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'geocoder', '~> 1.4', '>= 1.4.4'
+gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'stripe'
 

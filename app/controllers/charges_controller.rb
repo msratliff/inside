@@ -7,6 +7,7 @@ class ChargesController < ApplicationController
 		if current_user
 			@transactions = current_user.transactions.all
 		elsif current_venue
+			@promotions = current_venue.promotions.all
 			@transactions = current_venue.transactions.all
 		end
 		
@@ -32,6 +33,7 @@ class ChargesController < ApplicationController
 			charge = ChargeService.create_charge(current_user.stripe_id, @promotion.price*100, charge_description)
 
 		end
+
 		create_payment_method(charge)
 		create_transaction
 		redirect_to charge_path(@transaction.id)

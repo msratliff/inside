@@ -13,9 +13,27 @@
 			  </div>
 					<%= submit_tag 'Submit' %>
 			<% end %>
+
+			<!-- facebook login path -->
+			<% if current_user %>
+			  Welcome <%= current_user.name %> you have successfully signed in!<br>
+			  <%= link_to "Sign out", logout_path %>
+
+			<% else %>
+
+				<div id="facebook_login">
+				  <%= link_to "Login wit fb", facebook_login_path %>
+				  	<!-- <div class="facebook_button">login with facebook</div> -->
+				  <%# end %>
+				</div>
+			<% end %>
+
 			<br />
 			<%= link_to 'Create User Account', new_users_path %> |
 			<%= link_to 'Venue Login', venues_login_path, id: 'venuelogin' %>
 		</div>
 	</div>
 </div>
+
+
+

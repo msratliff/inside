@@ -2,13 +2,16 @@
 <%= @user.name %>
 <%= @user.email %>
 
-<% if current_venue %>
-	<%= link_to "Edit Account" , edit_venue_path, remote: true %>
+<% if current_user %>
+	<%= link_to "Edit Account" , edit_users_path(@user.id), remote: true %>
 <% end %>
 
-<% @transactions.each do |transaction| %>
-	<%= transaction.promotion.name %>
+<% @user.transactions.each do |transaction| %>
+	<%= transaction.created_at %>
+  <%= transaction.promotion.venue.name %>
+  <%= transaction.promotion.name %>
 	<%= transaction.promotion.price %>
+  <%= transaction.promotion.description %>
 <% end %>
 
 
