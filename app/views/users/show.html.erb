@@ -3,7 +3,7 @@
 <%= @user.email %>
 
 <% if current_user %>
-	<%= link_to "Edit Account" , edit_users_path(@user.id), remote: true %>
+	<%= link_to "Edit Account", edit_users_path, remote: true %>
 <% end %>
 
 <% @user.transactions.each do |transaction| %>
@@ -35,4 +35,3 @@
     </div>
   </div>
 </div>
-
