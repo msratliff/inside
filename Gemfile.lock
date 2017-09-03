@@ -43,6 +43,7 @@ GEM
     arel (8.0.0)
     autoprefixer-rails (7.1.2.6)
       execjs
+    backports (3.8.0)
     bcrypt (3.1.11)
     bindex (0.5.0)
     bootstrap (4.0.0.beta)
@@ -201,6 +202,8 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
+    token_phrase (1.0.6)
+      backports
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.3)
@@ -247,6 +250,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   sqlite3
   stripe
+  token_phrase
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)

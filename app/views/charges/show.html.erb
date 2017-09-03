@@ -1,1 +1,3 @@
 <h1>Thanks, you paid <strong><%= number_to_currency(@transaction.promotion.price) %> </strong>!</h1>
+
+<p>Your confirmation code is <em><%= @transaction.confirmation_code%></em>.</p>
