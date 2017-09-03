@@ -5,15 +5,25 @@ class User < ApplicationRecord
 	has_many :transactions, through: :payment_methods
 
 	validates :email, presence: true, uniqueness: {message: "Email address is already in use."}
-	# before_save :strip_user
+	validates :name, presence: true
 
+	def self.create_from_github(auth)
+    User.create!(
+      github_id: auth['uid'],
+      name: auth['info']['name'],
+      email: auth['info']['email']
+    )
+  end
 
-	# def stripe_user(params)
-	# 	customer = Stripe::Customer.create(
-	#     :email => params[:email],
-	#     :source  => params[:stripeToken],
-	#   )
-		
-	# end
+  def self.create_from_facebook(auth)
+    User.create!(
+			uid: auth['uid'],
+			name: auth['info']['name'],
+			email: auth['info']['email'],
+			password: "password",#needed for facebook login
+			password_confirmation: "password" #replace with random password gene
+    )
+
+	end	
 
 end
