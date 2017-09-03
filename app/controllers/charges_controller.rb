@@ -30,7 +30,6 @@ class ChargesController < ApplicationController
 			@user = User.find(current_user.id)
 			@user.stripe_id = customer.id
 			@user.save
-			byebug
 			charge = ChargeService.create_charge(current_user.stripe_id, @promotion.price*100, charge_description)
 
 		end
