@@ -32,6 +32,7 @@ class Users::SessionsController < ApplicationController
 		user = User.find_by(uid: auth['uid']) || User.create_from_facebook(auth)
 		
 		session[:user_id] = user.id
+    byebug
 		
 		redirect_to root_path, notice: "Signed in!"
 
