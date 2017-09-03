@@ -7,8 +7,11 @@
 <% end %>
 
 <% @user.transactions.each do |transaction| %>
-	<%= transaction.promotion.name %>
+	<%= transaction.created_at %>
+  <%= transaction.promotion.venue.name %>
+  <%= transaction.promotion.name %>
 	<%= transaction.promotion.price %>
+  <%= transaction.promotion.description %>
 <% end %>
 
 

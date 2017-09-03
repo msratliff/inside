@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170902183332) do
+ActiveRecord::Schema.define(version: 20170903194512) do
 
   create_table "payment_methods", force: :cascade do |t|
     t.integer "user_id"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 20170902183332) do
     t.integer "promotion_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "confirmation_code"
+    t.boolean "active", default: true
     t.index ["payment_method_id"], name: "index_transactions_on_payment_method_id"
     t.index ["promotion_id"], name: "index_transactions_on_promotion_id"
   end
