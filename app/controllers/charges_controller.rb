@@ -30,11 +30,13 @@ class ChargesController < ApplicationController
 			@user = User.find(current_user.id)
 			@user.stripe_id = customer.id
 			@user.save
+			byebug
 			charge = ChargeService.create_charge(current_user.stripe_id, @promotion.price*100, charge_description)
 
 		end
 
 		create_payment_method(charge)
+		generate_confirmation_code
 		create_transaction
 		redirect_to charge_path(@transaction.id)
 
@@ -47,12 +49,19 @@ class ChargesController < ApplicationController
 			@promotion = Promotion.find(params[:promotion_id])
 		end
 
+		def generate_confirmation_code
+			loop do 
+				@confirmation_code = TokenPhrase.generate(" ",:colors => %w(), :numbers => false).split.join(" ")
+				break @confirmation_code unless Transaction.where(confirmation_code: @confirmation_code).exists?
+			end
+		end
+
 		def create_payment_method(charge)
 			@payment_method = PaymentMethod.find_or_create_by(user_id: current_user.id, card_token: charge[:source][:id], card_last_four: charge[:source][:last4])
 		end
 
 		def create_transaction
-			@transaction = Transaction.create(promotion_id: @promotion.id, payment_method_id: @payment_method.id) 
+			@transaction = Transaction.create(promotion_id: @promotion.id, payment_method_id: @payment_method.id, confirmation_code: @confirmation_code) 
 		end
 
 end

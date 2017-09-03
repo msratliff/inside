@@ -5,7 +5,7 @@
 			<% promotion.transactions.each do |transaction| %>
 				<% if transaction.active? %>
 					<%= transaction.id %>
-					<%= transaction.payment_method.user.name%>
+					<%= transaction.payment_method.user.email%>
 					<%= transaction.confirmation_code %>
 				<% end %>
 			<% end %>
