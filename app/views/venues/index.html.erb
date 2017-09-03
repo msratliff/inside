@@ -1,16 +1,18 @@
 <div class="container col-md-8">
 	<div class="row">
 		<div id="Title"></div><h3>Find nearby spots to get Inside!</h3></div>
-		
-	<div class="row">
-		<%= form_tag(venues_path, method: :get) do %>
-		  <%= text_field_tag :search , params[:search] %>
-		  <%= submit_tag 'Search', :id=> "search-btn" %>
-		<% end %>
 
+	<div class="row">
 		<%= link_to root_path, id: "locate" do %>
 			<i class="fa fa-crosshairs" aria-hidden="true"></i>
 		<%end%>
+
+		<%= form_tag(venues_path, method: :get) do %>
+		  <%= text_field_tag :search , params[:search] %>
+		 <button type="button" class="btn btn-dark"><%= submit_tag 'Search', :id=> "search-btn" %></button>
+		<% end %>
+
+
 
 	</div>
 </div>
