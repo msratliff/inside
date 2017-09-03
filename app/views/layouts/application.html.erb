@@ -3,16 +3,21 @@
   <head>
     <title>Inside</title>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="/">Inside</a>
+
+
+    <nav class="navbar navbar-light" style="background-color: #1f2d27;">
+      <a class="navbar-brand" href="/">
+        <img src="/assets/insidelogo.png" href="/"  alt="test" id="navlogo">
+        </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -23,7 +28,7 @@
             <li class="nav-item">
             <%= link_to current_user.email, users_path(current_user), class: 'nav-link' %>
             </li>
-          
+
             <li class="nav-item">
               <%= link_to 'logout', users_logout_path, class: "nav-link"  %>
             </li>
@@ -33,7 +38,7 @@
             <li class="nav-item">
               <%= link_to current_venue.email, venue_path(current_venue), class: 'nav-link'%>
             </li>
-          
+
             <li class="nav-item">
               <%= link_to 'logout', venues_logout_path, class: "nav-link"  %>
             </li>
@@ -43,7 +48,7 @@
   </nav>
 
 
-  	<p id="notice"><%= notice %></p>
+  	
 
 
 
