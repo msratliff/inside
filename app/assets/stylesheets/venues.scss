@@ -1,29 +1,206 @@
-.fa-crosshairs {
-	font-size: 1.5em;
-	margin-left: 0.25em;
-	padding-top: 0.15em;
-	text-align: center;
-	color: #1f2d27;
+// // Place all the styles related to the users controller here.
+// // They will automatically be included in application.css.
+// // You can use Sass (SCSS) here: http://sass-lang.com/
+@media screen and (max-width: 736px){
+
+#mainnavbar{
+  padding: 0;
+
 }
 
-.venue-button {
-	height: 3rem;
-	background-color: #1f2d27;
-	color: lightgrey;
-	margin: 0.25em 0em;
-	align-content: center;
+
+
+#navbarSupportedContent {
+  text-align: center;
 }
 
-.venue-heading {
-	color: #1f2d27;	
+#navbarSupportedContent > ul > li:nth-child(2) > a{
+  color: white;
 }
 
-.venue-address {
-	width: 100%;
-	text-align: center;
+#navbarSupportedContent > ul > li:nth-child(1) > a{
+  color: white;
 }
 
-.venue_google_map {
-	width: 100%;
-  height: 30vh;
+h2 {
+  text-align: center;
+  color: #30c17d;
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+
+// the lines for the or element
+h6 {
+
+}
+
+  #logo{
+    width: 50%;
+    height: 150px;
+  }
+
+  #exampleInputEmail2 {
+    margin-top: 20px;
+    background-color: black;
+    color: #30c17d;
+    height: 50px;
+  }
+
+  #exampleInputPassword2 {
+    background-color: black;
+    margin-top: 20px;
+    height: 50px;
+  }
+
+  #venuelogincontainer{
+    background-color: #1f2d27;
+    width: 350px;
+    height: 480px;
+    margin-top: 40px;
+    margin-left: 0 auto;
+    border-radius: 10px;
+    color: white;
+  }
+
+  #or2 {
+    // margin-left: 150px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    // margin: 0;
+
+  }
+
+  #facebook_venue_login{
+    text-align: center;
+
+    font: bold 13px Arial;
+    text-decoration: none;
+    background-color: #3B5998;
+    width: 50%;
+    height: 40px;
+    border-radius: 10px;
+    margin-left: 25%;
+
+
+  }
+
+  #venuelogincontainer > div > div{
+    text-align: center;
+  }
+
+  #facebook_venue_login > a > div{
+    color: white;
+  }
+
+  #submit2{
+    width: 90%;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: #30c17d;
+    // margin-left: 15px;
+    margin-top: 20px;
+  }
+
+  #uservenuelogin{
+    text-align: center;
+  }
+  a {
+    color: grey;
+  }
+}
+
+@media (min-width: 737px){
+    body {
+      background-color: #30c17d;
+    }
+
+    h2 {
+      text-align: center;
+      color: #30c17d;
+      margin-top: 20px;
+      padding-bottom: 20px;
+    }
+    #logo{
+      width: 50%;
+      height: 150px;
+
+    }
+
+    #exampleInputEmail2 {
+      margin-top: 20px;
+      background-color: black;
+      color: #30c17d;
+    }
+
+    #exampleInputPassword2 {
+      background-color: black;
+    }
+
+    #venuelogincontainer{
+      background-color: #1f2d27;
+      width: 900px;
+      height: 400px;
+      margin-top: 150px;
+      border-radius: 10px;
+      text-align: center;
+      -webkit-box-shadow: -8px 30px 116px -20px rgba(0,0,0,0.75);
+      -moz-box-shadow: -8px 30px 116px -20px rgba(0,0,0,0.75);
+      box-shadow: -8px 30px 116px -20px rgba(0,0,0,0.75);
+    }
+
+    #submit2{
+      width: 50%;
+      height: 40px;
+      border-radius: 10px;
+      border: none;
+      background-color: #30c17d;
+
+    }
+
+    a {
+      color: grey;
+    }
+
+    a:hover {
+      text-decoration: none;
+      color: #30c17d;
+    }
+    #facebook_venue_login{
+      text-align: center;
+      margin-top: 5px;
+      font: bold 13px Arial;
+      text-decoration: none;
+      background-color: #3B5998;
+      width: 50%;
+      height: 40px;
+      border-radius: 10px;
+      margin-left: 25%;
+    }
+    #facebook_venue_login > a > div{
+      color: white;
+    }
+
+    #or2 {
+      // margin-left: 150px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      text-align: center;
+      color: white;
+    }
+
+      h6 {
+       width: 100%;
+       text-align: center;
+       border-bottom: 1px solid #000;
+       line-height: 0.1em;
+       margin: 10px 0 20px;
+    }
+
+      h6 span {
+        background:#fff;
+        padding:0 10px;
+      }
+
 }
