@@ -1,4 +1,5 @@
 @media screen and (max-width: 736px){
+
   #navbarSupportedContent{
     background-color: #1f2d27;
 
@@ -13,20 +14,22 @@
     height: 30px;
   }
 
-
   body > div.container.col-md-8 > div:nth-child(2) > form > button{
     margin-left: 20px;
     color: white;
 
   }
-#search-btn{
-  color: white;
-}
+
+  #search-btn{
+    color: white;
+  }
+
   #locate > i {
     margin-left: 10px;
     margin-right: 30px;
     margin-top: 8px;
     font-size: 150%;
+    color: black;
   }
 
   // top text "find nearby spots"
