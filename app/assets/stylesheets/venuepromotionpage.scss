@@ -10,11 +10,25 @@
   }
 
   #navbarSupportedContent {
-    font-size: 200%;
+    font-size: 120%;
   }
   .venuepromotioncontainer{
     margin-top: 50px;
     margin-right: 150px;
+  }
+
+  #edit-form-promotion{
+    width: 400px;
+    margin-left: 260px;
+    background-color: #1f2d27;
+    padding-bottom: 20px;
+    padding-top: 10px;
+    border-radius: 10px;
+  }
+
+  #edit-form-submit{
+    margin-left: 110px;
+    margin-top: 20px;
   }
 
   #venueheading {
@@ -91,11 +105,17 @@
 
   #promotion-submit{
     margin-top: 10px;
-    // margin-bottom: 100px;
+    margin-bottom: 50px;
     margin-left: 135px;
   }
 
+#navbarSupportedContent > ul > li:nth-child(1) > a{
+  color: white;
+}
 
+#navbarSupportedContent > ul > li:nth-child(2) > a{
+  color: white;
+}
 
 
 }
