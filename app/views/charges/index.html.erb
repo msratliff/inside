@@ -3,11 +3,20 @@
 	<% @promotions.each do |promotion| %>
 		<div>
 			<% promotion.transactions.each do |transaction| %>
-				<% if transaction.active? %>
-					<%= transaction.id %>
-					<%= transaction.payment_method.user.name%>
-					<%= transaction.confirmation_code %>
-				<% end %>
+				<div class="transaction-wrap" data-id="<%= transaction.id %>">
+					<% if transaction.active? %>
+						<%= link_to charge_path(transaction), remote: true do %>
+							<div class="">
+								<%= transaction.id %>
+								<%= transaction.payment_method.user.email%>
+								<%= transaction.confirmation_code %>
+							</div>
+						<% end %>
+						<div class="transaction-wrap-btn">
+							<%= render 'toggleform', transaction: transaction, url: confirm_transaction_path(transaction) %>
+						</div>
+					<% end %>
+				</div>
 			<% end %>
 		</div>
 	<% end %>
