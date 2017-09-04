@@ -7,13 +7,6 @@ class User < ApplicationRecord
 	validates :email, presence: true, uniqueness: {message: "Email address is already in use."}
 	validates :name, presence: true
 
-	def self.create_from_github(auth)
-    User.create!(
-      github_id: auth['uid'],
-      name: auth['info']['name'],
-      email: auth['info']['email']
-    )
-  end
 
   def self.create_from_facebook(auth)
     User.create!(
