@@ -4,7 +4,7 @@ class Venue < ApplicationRecord
 
 	validates :email, presence: true, uniqueness: {message: "Email address is already in use."}
 
-	has_many :promotions
+	has_many :promotions, dependent: :destroy
 	has_many :transactions, through: :promotions
 	
 	geocoded_by :address

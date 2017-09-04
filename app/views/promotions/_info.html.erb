@@ -1,8 +1,9 @@
 
 
-<%= @promotion.name %>
 <%= @promotion.description %>
-<%= @promotion.day_of_week %>
+<% if current_venue %>
+	<%= @promotion.price %>
+<% end %>
 
 
 <% if current_user %>
@@ -15,7 +16,7 @@
 		      </div>
 		    <% end %>
 		    <label class="amount">
-		      <span>Amount: $<%= @promotion.price %></span>
+		      <span>$<%= @promotion.price %></span>
 		    </label>
 		  </article>
 

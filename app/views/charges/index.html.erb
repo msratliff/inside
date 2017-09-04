@@ -1,25 +1,33 @@
-
 <% if current_venue %>
-	<% @promotions.each do |promotion| %>
-		<div>
-			<% promotion.transactions.each do |transaction| %>
-				<div class="transaction-wrap" data-id="<%= transaction.id %>">
-					<% if transaction.active? %>
-						<%= link_to charge_path(transaction), remote: true do %>
-							<div class="">
-								<%= transaction.id %>
-								<%= transaction.payment_method.user.email%>
-								<%= transaction.confirmation_code %>
-							</div>
-						<% end %>
-						<div class="transaction-wrap-btn">
-							<%= render 'toggleform', transaction: transaction, url: confirm_transaction_path(transaction) %>
+	<br>
+	<div class="panel-group" id="accordion">
+	  <% @promotions.each do |promotion| %>
+		  <div class="panel panel-default according-container">
+		    <div class="panel-heading">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= promotion.id %>">
+		        <%= promotion.day_of_week %> - <%= promotion.name %></a>
+		      </h4>
+		    </div>
+		    <div id="collapse<%= promotion.id %>" class="panel-collapse collapse in">
+		      <div class="panel-body">
+			      <% promotion.transactions.each do |transaction| %>
+						<div class="col-sm-12 transaction-wrap" data-id="<%= transaction.id %>">
+							<% if transaction.active? %>
+									<div class="col-xs-6 transaction-box-info">
+										<p>Order Number: <%= transaction.id %></p>
+										<p><%= transaction.payment_method.user.email%> - <%= transaction.confirmation_code %></p>
+									</div>
+								<div class="col-xs-6 transaction-wrap-btn">
+									Confirm Purchase:
+									<%= render 'toggleform', transaction: transaction, url: confirm_transaction_path(transaction) %>
+								</div>
+							<% end %>
 						</div>
 					<% end %>
 				</div>
-			<% end %>
-		</div>
-	<% end %>
-<% end %>
-
-
+		    </div>
+		  </div>
+	  <% end %>
+	</div>
+<%end %>

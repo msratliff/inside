@@ -40,11 +40,11 @@
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #30c17d;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #30c17d;
 }
 
 input:checked + .slider:before {
@@ -60,4 +60,40 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.according-container {
+  width: 85%;
+  margin: auto;
+  background-color: #1f2d27;
+}
+
+.promotion-box--title {
+  background-color: #1f2d27;
+  color: #30c17d;
+  font-size: 2rem;
+  margin-top: 2vh;
+}
+
+.transaction-wrap {
+  display: flex;
+}
+
+.transaction-box-info {
+  padding: 0.5rem;
+  color: #30c17d;
+}
+
+
+.transaction-wrap-btn {
+  color: #30c17d;
+}
+
+#confirm-button-hide {
+  display: none;
+}
+
+.panel-title {
+  margin-left: 2rem;
+  padding: 0.25rem;
 }
