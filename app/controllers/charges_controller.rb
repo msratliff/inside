@@ -18,12 +18,13 @@ class ChargesController < ApplicationController
 	end
 
 	def toggle_active
-    # @transaction.update_attribute(:active, false)
+		@transaction.update_attribute(:active, false)
 
-    respond_to do |format|
-      format.js 
-    end
-    # redirect_to charges_path
+		respond_to do |format|
+			format.html {redirect_to charges_path }
+			format.js 
+		end
+
 	end
 
 	def new
