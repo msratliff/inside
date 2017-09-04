@@ -37,6 +37,7 @@
 
           <% if current_venue %>
             <li class="nav-item">
+              <%= link_to 'Events details', analytics_path(current_venue), class: 'nav-link'%>
               <%= link_to current_venue.email, venue_path(current_venue), class: 'nav-link'%>
             </li>
 
