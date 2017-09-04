@@ -11,12 +11,18 @@
 			</ul>
 		</div>
 	<% end %>
-	
-	<%= form.label :description %>
-	<%= form.text_area :description %>
+
+	<div class="container col-md-12" class="container-fluid" id="edit-form-promotion">
+		<div class="row">
+			<div class="col-md-offset-3 col-md-12">
+				<%= form.text_area :description, class: 'form-control', id: 'edit-description', placeolder: 'description' %>
+				<%= form.submit "save description", class: 'btn btn-success', id: 'edit-form-submit' %>
+			</div>
+		</div>
+	</div>
 
 	<div class="actions">
-		<%= form.submit %>
+
 	</div>
-	
+
 <% end %>

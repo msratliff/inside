@@ -1,40 +1,49 @@
-<% if current_venue %>
-	<%= link_to "Edit Account" , edit_venue_path, remote: true %>
-<% end %>
 
-<div id="venueheading" class="venue-heading"> <%= @venue.name %></div>
+<div class="venuepromotioncontainer">
 
-<iframe class="venue_google_map" id="googlemap"
-  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBYl8v-DaqCf5siEpRbhdbufAIvt4_T6jQ
-    &q=<%= @venue.address %>" allowfullscreen>
-</iframe>
+	  <div id="venueheading" class="venue-heading"> <%= @venue.name %></div>
 
-<div class="venueshowcontainer">
-	<div class="venue-address">
-		<%= @venue.street %>, <br>
-		<%= @venue.city %>, <%= @venue.state %> <%= @venue.zipcode %>
+	  <iframe class="venue_google_map" id="googlemap"
+		  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBYl8v-DaqCf5siEpRbhdbufAIvt4_T6jQ
+		    &q=<%= @venue.address %>" allowfullscreen>
+	  </iframe>
+
+	  <div class="venueshowcontainer">
+			<div class="venue-address">
+				<%= @venue.street %>, <br>
+				<%= @venue.city %>, <%= @venue.state %> <%= @venue.zipcode %>
+		 </div>
+
+	   <div class="venue-description">
+	  	<div id="venue-description-display">
+	    <%= @venue.description %>
+	  	</div>
+	   </div>
+
+	   <div id="edit-desc-form", style="display:none">
+	    <%= render 'description', venue: @venue %>
+	   </div>
+
+
+	   <div id="edit-buttons">
+
+				<% if current_venue %>
+					<%= link_to "Edit Account" , edit_venue_path, remote: true %>
+				<% end %>
+
+
+
+				<% if current_venue %>
+			    <%= link_to "Edit Description", "#", id: "desc-edit", remote: true %>
+			      <!-- <i class="fa fa-pencil" aria-hidden="true"></i> -->
+			    <%# end %>
+			  <% end %>
+
 		</div>
-
-		<div class="venue-description">
-		  <div id="venue-description-display">
-		    <%= @venue.description %>
-		  </div>
-
-		  <div id="edit-desc-form", style="display:none">
-		    <%= render 'description', venue: @venue %>
-		  </div>
-
-		  <% if current_venue %>
-		    <%= link_to "Edit Description", "#", id: "desc-edit", remote: true %>
-		      <!-- <i class="fa fa-pencil" aria-hidden="true"></i> -->
-		    <%# end %>
-		  <% end %>
-		</div>
+	</div>
+</div>
 
 
-		<% if current_venue %>
-			<%= render 'promotions/form', venue: @venue %>
-		<% end %>
 
 
 		<% @promotions.each do |promotion| %>
@@ -58,11 +67,17 @@
 
 		</div>
 	<% end %>
+
+	<div id="promotion-form">
+		<% if current_venue %>
+			<%= render 'promotions/form', venue: @venue %>
+		<% end %>
+	</div>
 </div>
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
