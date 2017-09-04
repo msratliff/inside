@@ -18,6 +18,7 @@ class User < ApplicationRecord
   def self.create_from_facebook(auth)
     User.create!(
 			uid: auth['uid'],
+			provider: auth['provider'],
 			name: auth['info']['name'],
 			email: auth['info']['email'],
 			password: "password",#needed for facebook login

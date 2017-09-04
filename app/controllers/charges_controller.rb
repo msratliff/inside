@@ -1,6 +1,7 @@
 class ChargesController < ApplicationController
 	before_action :authorize
-	before_action :set_promotion_charge, only: [:create, :index]
+	before_action :set_promotion_charge, only: [:create]
+	before_action :set_transaction, only: [:show, :toggle_active]
 
 
 	def index
@@ -14,7 +15,15 @@ class ChargesController < ApplicationController
 	end
 
 	def show
-		@transaction = Transaction.find(params[:id])
+	end
+
+	def toggle_active
+    # @transaction.update_attribute(:active, false)
+
+    respond_to do |format|
+      format.js 
+    end
+    # redirect_to charges_path
 	end
 
 	def new
@@ -46,6 +55,10 @@ class ChargesController < ApplicationController
 
 		def set_promotion_charge
 			@promotion = Promotion.find(params[:promotion_id])
+		end
+
+		def set_transaction
+			@transaction = Transaction.find(params[:id])
 		end
 
 		def generate_confirmation_code
