@@ -1,6 +1,6 @@
 class VenuesController < ApplicationController
 
-	before_action :set_venue, only: [:show, :edit, :update, :destroy]
+	before_action :set_venue, only: [:show, :edit, :update, :destroy, :analytics]
 	before_action :authorize, only: [:show, :edit, :update, :destroy, :index]
 
 	def index
@@ -18,15 +18,12 @@ class VenuesController < ApplicationController
     end
 	end
 
+	def analytics
+		@promotions = Promotion.where(venue_id: @venue.id)
+	end
+
 	def show
-		@promotions = Promotion.where(venue_id: @venue.id).order(
-			"CASE day_of_week WHEN 'Sunday' THEN 0 " \
-	    "WHEN 'Monday' THEN 1 " \
-	    "WHEN 'Tuesday' THEN 2 " \
-	    "WHEN 'Wednesday' THEN 3 " \
-	    "WHEN 'Thursday' THEN 4 " \
-	    "WHEN 'Friday' THEN 5 " \
-	    "WHEN 'Saturday' THEN 6 END")
+		@promotions = Promotion.where(venue_id: @venue.id).day_of_week_order
 	end
 
 	def new

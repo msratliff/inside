@@ -1,0 +1,43 @@
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<h3>Name</h3>			
+		</div>
+		<div class="col-md-2">
+			<h3>Day</h3>			
+		</div>
+		<div class="col-md-2">
+			<h3>Time</h3>			
+		</div>
+		<div class="col-md-2">
+			<h3>Transactions</h3>			
+		</div>
+		<div class="col-md-3">
+			<h3>Total Amount</h3>			
+		</div>
+	</div>
+
+
+	<% @promotions.each do |promo| %>
+		<div class="row">
+			<div class="col-md-3">
+				<%= promo.name %>
+			</div>
+			<div class="col-md-2">
+				<%= promo.day_of_week %>
+			</div>
+			<div class="col-md-2">
+				<%= promo.time.strftime('%l:%M %P') %>
+			</div>
+			<div class="col-md-2">
+				<%= promo.transactions.count %>
+			</div>
+			<div class="col-md-3">
+				<%= number_to_currency(promo.transactions.count * promo.price.to_i * 100) %>
+			</div>
+		</div>
+	<% end %>
+
+</div>	
+	
