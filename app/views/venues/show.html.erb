@@ -2,61 +2,63 @@
 	<%= link_to "Edit Account" , edit_venue_path, remote: true %>
 <% end %>
 
-<h2 class="venue-heading"> <%= @venue.name %></h2>
+<div id="venueheading" class="venue-heading"> <%= @venue.name %></div>
 
-<div class="venue-address">
-<%= @venue.street %>, <br>
-<%= @venue.city %>, <%= @venue.state %> <%= @venue.zipcode %>
-</div>
-
-<div class="venue-description">
-  <div id="venue-description-display">
-    <%= @venue.description %>
-  </div>
-
-  <div id="edit-desc-form", style="display:none">
-    <%= render 'description', venue: @venue %>
-  </div>
-
-  <% if current_venue %>
-    <%= link_to "Edit Description", "#", id: "desc-edit", remote: true %>
-      <!-- <i class="fa fa-pencil" aria-hidden="true"></i> -->
-    <%# end %>
-  <% end %>
-</div>
-
-<iframe class="venue_google_map"
+<iframe class="venue_google_map" id="googlemap"
   src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBYl8v-DaqCf5siEpRbhdbufAIvt4_T6jQ
     &q=<%= @venue.address %>" allowfullscreen>
 </iframe>
 
-<% if current_venue %>
-	<%= render 'promotions/form', venue: @venue %>
-<% end %>
+<div class="venueshowcontainer">
+	<div class="venue-address">
+		<%= @venue.street %>, <br>
+		<%= @venue.city %>, <%= @venue.state %> <%= @venue.zipcode %>
+		</div>
+
+		<div class="venue-description">
+		  <div id="venue-description-display">
+		    <%= @venue.description %>
+		  </div>
+
+		  <div id="edit-desc-form", style="display:none">
+		    <%= render 'description', venue: @venue %>
+		  </div>
+
+		  <% if current_venue %>
+		    <%= link_to "Edit Description", "#", id: "desc-edit", remote: true %>
+		      <!-- <i class="fa fa-pencil" aria-hidden="true"></i> -->
+		    <%# end %>
+		  <% end %>
+		</div>
 
 
-<% @promotions.each do |promotion| %>
-	<div class="row">	
-		
-    <%= link_to venue_promotion_path(@venue,promotion), remote: true do %>
-			<div class="venue-button col-md-12">
-				<%= promotion.day_of_week %> - <%= promotion.price %>
-			</div>
+		<% if current_venue %>
+			<%= render 'promotions/form', venue: @venue %>
 		<% end %>
 
-    <% if current_venue %>
-      <%= link_to edit_venue_promotion_path(@venue,promotion), remote: true  do %>
-        <i class="fa fa-pencil" aria-hidden="true"></i>
-      <% end %>
 
-      <%= link_to venue_promotion_path(@venue,promotion), data: { confirm: 'Are you sure?' }, method: :delete  do %>
-        <i class="fa fa-times" aria-hidden="true"></i>
-      <% end %>
-    <% end %>
+		<% @promotions.each do |promotion| %>
+			<div class="row" id="promotionbuttons">
 
-	</div>
-<% end %>
+		    <%= link_to venue_promotion_path(@venue,promotion), remote: true do %>
+					<div class="venue-button col-md-12">
+						<%= promotion.day_of_week %> - <%= promotion.price %>
+					</div>
+				<% end %>
 
+		    <% if current_venue %>
+		      <%= link_to edit_venue_promotion_path(@venue,promotion), remote: true  do %>
+		        <i class="fa fa-pencil" aria-hidden="true"></i>
+		      <% end %>
+
+		      <%= link_to venue_promotion_path(@venue,promotion), data: { confirm: 'Are you sure?' }, method: :delete  do %>
+		        <i class="fa fa-times" aria-hidden="true"></i>
+		      <% end %>
+		    <% end %>
+
+		</div>
+	<% end %>
+</div>
 
 
 <!-- Modal -->
@@ -79,5 +81,3 @@
     </div>
   </div>
 </div>
-
-

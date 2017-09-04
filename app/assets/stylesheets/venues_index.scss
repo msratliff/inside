@@ -1,23 +1,82 @@
-#navbarSupportedContent{
-  background-color: #1f2d27;
+@media screen and (max-width: 736px){
+
+  #navbarSupportedContent{
+    background-color: #1f2d27;
+
+  }
+
+  #search {
+    // margin-left: 60px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border-style: none;
+    width: 220px;
+    height: 30px;
+  }
+
+  body > div.container.col-md-8 > div:nth-child(2) > form > button{
+    margin-left: 20px;
+    color: white;
+
+  }
+
+  #search-btn{
+    color: white;
+  }
+
+  #locate > i {
+    margin-left: 10px;
+    margin-right: 30px;
+    margin-top: 8px;
+    font-size: 150%;
+    color: black;
+  }
+
+  // top text "find nearby spots"
+
+  body > div.container.col-md-8 > div:nth-child(1) > h3{
+    margin-left: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  #search-btn{
+
+  }
+
+  #content > div > a{
+    text-align: center;
+    background-color: #1f2d27;
+    width: 350px;
+    height: 140px;
+    color: white;
+    margin-left: 7%;
+    margin-bottom: 10px;
+    // margin-top: 20px;
+    border-radius: 10px;
+
+  }
+
+  #title{
+    margin-top: 100px;
+  }
+
+  #content > div > a > div{
+    margin-top: 20px;
+    color: #30c17d;
+  }
+
+  #venuenamefield{
+    color: white;
+    font-size: 150%;
+    margin-bottom: 0;
+  }
+
+  #venueaddressfield{
+
+  }
 
 }
 
-#search {
-  margin-left: 100px;
-  margin-bottom: 20px;
-}
+@media screen and (min-width: 737px){
 
-#content > div > a{
-  text-align: center;
-  background-color: #1f2d27;
-  width: 350px;
-  height: 100px;
-  color: white;
-  margin-left: 7%;
-
-}
-
-#title{
-  margin-top: 100px;
 }

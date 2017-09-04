@@ -1,0 +1,65 @@
+@media screen and (max-width: 736px){
+
+  #googlemap{
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 5px;
+  }
+
+  .venueshowcontainer{
+    background-color: #1f2d27;
+    width: 100%;
+    height: 415px;
+    // margin-top: 10px;
+    // margin-left: 0 auto;
+    // border-radius: 10px;
+    color: white;
+    text-align: center;
+  }
+  #exampleModal{
+    position:absolute;
+    overflow-y: auto;
+    max-height: 400px;
+    padding: 15px;
+    margin-top: 20 0px;
+    text-align: center;
+    margin-top: 20px;
+
+  }
+
+  #exampleModal > div > div > div.modal-body{
+    background-color: black;
+    color: white;
+  }
+
+  #venueheading{
+    color: white;
+    font-size: 200%;
+    text-align: center;
+    background-color: #1f2d27;
+    color: #30c17d;
+
+  }
+  // modal body text
+  #exampleModal > div > div > div.modal-body > div > form > article > label{
+    // border-style: solid;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: black;
+    // border-color: #30c17d;
+    color: #30c17d;
+
+  }
+ // modal header
+  #exampleModal > div > div > div.modal-header{
+    background-color: black;
+    color: #30c17d;
+
+  }
+  // modal closeout button
+  #exampleModal > div > div > div.modal-header > button{
+    color: #30c17d;
+  }
+
+
+}
