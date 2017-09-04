@@ -10,22 +10,36 @@
 			</ul>
 		</div>
 	<% end %>
-		
-	<%= form.label :name %>
-	<%= form.text_field :name %>
 
-	<%= form.label :description %>
-	<%= form.text_area :description %>
-	
-	<%= form.label :day_of_week %>
-	<%= form.select :day_of_week, ['Sunday','Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ], :prompt => 'Select One' %>
-	<br>
-	<%= form.label :price %>
-	<%= form.number_field(:price, min: 1) %>
-	<br>
-	<%= form.label :time %>
-	<%= form.time_select(:time, {minute_step: 15}) %>
-	
-	<%= form.submit %>
+
+
+	<div class="container col-md-4 float-left" class="container-fluid" id="promotion-form">
+		<div class="row">
+			<div class="col-md-offset-3 col-md-12">
+				<div>
+					<div id="promotiontext"><h3>Create your own promotion below!</h3></div>
+
+					<%= form.text_field :name,  class: 'form-control', id: 'promotion-name', placeholder: 'Name' %>
+
+					<div class="form-group">
+					 <label for="exampleFormControlTextarea1"></label>
+					 <%= form.text_area :description,  class: 'form-control', id: 'promotion-description', placeholder: 'Description' %>
+				  </div>
+
+					<%= form.number_field(:price, min: 1, class: 'form-control', placeholder: '$ promotion price ') %>
+					<br>
+					<%= form.select :day_of_week, ['Sunday','Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ], :prompt => 'Day' %>
+
+
+					<%= form.time_select(:time, {minute_step: 15})%><br>
+
+					<%= form.submit "save promotion", class: 'btn btn-success', id: 'promotion-submit' %>
+
+
+			 </div>
+		 </div>
+	 </div>
+ </div>
+
 
 <% end %>

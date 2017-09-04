@@ -1,0 +1,98 @@
+@media screen and (min-width: 737px){
+
+
+  nav {
+    text-align: center;
+  }
+
+  a:hover {
+    color: white !important;
+  }
+
+  #navbarSupportedContent {
+    font-size: 200%;
+  }
+  .venuepromotioncontainer{
+    margin-top: 50px;
+    margin-right: 150px;
+  }
+
+  #venueheading {
+    font-size: 300%;
+    margin-left: 360px;
+    display: inline;
+    margin-top: 200px;
+    // margin-right: 200px;
+  }
+
+  #googlemap {
+    width: 500px;
+    height: 500px;
+    float: right;
+    margin-right: 100px;
+    // margin-top: 200px;
+    margin: 0;
+
+  }
+
+  .venue-address{
+    margin-top: 30px;
+    margin-left: 390px;
+  }
+  #venue-description-display {
+    margin-left: 220px;
+    margin-top: 30px;
+      // text-align: center;
+  }
+
+  #edit-buttons{
+    margin-top: 20px;
+    margin-left: 320px;
+    font-size: 120%;
+  }
+
+  #desc-edit {
+    margin-left: 10px;
+  }
+
+  #promotionbuttons {
+    margin-left: 365px;
+  }
+
+  #promotiontext{
+    margin-left: 30px;
+    margin-bottom: 20px;
+    color: white;
+  }
+
+  #promotion-form{
+    margin-left: 120px;
+    background-color:  #1f2d27;
+    margin-bottom: 100px;
+    // padding-bottom: 30px;
+
+  }
+
+  #exampleModal2{
+    width: 100%;
+    position:absolute;
+    overflow-y: auto;
+
+  }
+
+
+  #promotion-form > div > div > div > select:nth-child(7){
+    // margin-left: 90px;
+    margin-bottom: 10px;
+
+
+  }
+
+  #promotion-submit{
+    margin-top: 10px;
+    // margin-bottom: 100px;
+    margin-left: 135px;
+  }
+
+
+}
