@@ -1,1 +1,7 @@
-<h1>Thanks, you paid <strong><%= number_to_currency(@transaction.promotion.price) %> </strong>!</h1>
+<% if current_user %>
+	<%= render 'confirmation' %>
+<% end %>
+
+<% if current_venue %>
+	<%= render 'toggleform', transaction: @transaction, url: confirm_transaction_path(@transaction) %>
+<% end %>

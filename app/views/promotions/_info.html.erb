@@ -1,28 +1,31 @@
 
 
-
+<%= @promotion.name %>
 <%= @promotion.description %>
+<%= @promotion.day_of_week %>
 
-<div class="paynow-btn">
-	 <%= form_tag charges_path(promotion_id: @promotion.id) do %>
-	  <article>
-	    <% if flash[:error].present? %>
-	      <div id="error_explanation">
-	        <p><%= flash[:error] %></p>
-	      </div>
-	    <% end %>
-	    <label class="amount">
-	      <span>Amount: $<%= @promotion.price %></span>
-	    </label>
-	  </article>
 
-  	<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="<%= @promotion.description %>"
-          data-amount="$<%= @promotion.price * 100 %>"
-          data-email="<%= current_user.email %>"
-          data-locale="auto"></script>
-	<% end %>
+<% if current_user %>
+	<div class="paynow-btn">
+		 <%= form_tag charges_path(promotion_id: @promotion.id) do %>
+		  <article>
+		    <% if flash[:error].present? %>
+		      <div id="error_explanation">
+		        <p><%= flash[:error] %></p>
+		      </div>
+		    <% end %>
+		    <label class="amount">
+		      <span>Amount: $<%= @promotion.price %></span>
+		    </label>
+		  </article>
 
-</div>
+	  	<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+	          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+	          data-description="<%= @promotion.description %>"
+	          data-amount="$<%= @promotion.price * 100 %>"
+	          data-email="<%= current_user.email %>"
+	          data-locale="auto"></script>
+		<% end %>
 
+	</div>
+<% end %>

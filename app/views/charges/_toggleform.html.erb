@@ -1,0 +1,9 @@
+
+<%= form_with(model: transaction, url: url, remote: true) do |f| %>
+	<label class="switch">
+	  <%= f.check_box :active %>
+	  <span class="slider round"></span>
+	</label>
+	<%= f.submit "Confirm", data: { confirm: 'Are you sure?' } %>
+<% end %>
+

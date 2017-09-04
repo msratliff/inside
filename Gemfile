@@ -37,6 +37,8 @@ gem 'geocoder', '~> 1.4', '>= 1.4.4'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'stripe'
+gem 'token_phrase'
+
 
 
 # Use Capistrano for deployment

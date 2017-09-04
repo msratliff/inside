@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   resource :users
   resources :charges, only: [:new, :create, :index, :show]
+  patch '/charges/:id/confirm', :to => 'charges#toggle_active', :as => 'confirm_transaction'
+
   
   get 'venues/signup' => 'venues#new'
   get 'users/signup' => 'users#new'
