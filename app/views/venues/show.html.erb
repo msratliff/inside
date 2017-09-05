@@ -17,7 +17,7 @@
 			<div class="row">
 				<div class="venue-description">
 					<%= @venue.description %>
-					<% if current_venue.id == @venue.id %>
+					<% if (current_venue && current_venue.id == @venue.id) %>
 						<%= link_to "#", remote: true do %>
 							<i class="fa fa-pencil", id="desc-edit", aria-hidden="true"></i>
 						<% end %>
@@ -43,7 +43,7 @@
 
 <div class="promotionscontainer col-lg-9 col-xs-9">
 	<div class="row">		
-			<% if current_venue %>		
+			<% if (current_venue && current_venue.id == @venue.id) %>		
 				<%= render 'promotions/form', venue: @venue %>		
 			<% end %>		
 	</div>
@@ -58,7 +58,7 @@
 					</div>
 				<% end %>
 
-		    <% if current_venue.id == @venue.id %>
+		    <% if (current_venue && current_venue.id == @venue.id) %>
 		      <%= link_to edit_venue_promotion_path(@venue,promotion), remote: true  do %>
 		        <i class="fa fa-pencil" aria-hidden="true"></i>
 		      <% end %>
