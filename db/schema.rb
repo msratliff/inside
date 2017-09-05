@@ -12,8 +12,11 @@
 
 ActiveRecord::Schema.define(version: 20170903194512) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "payment_methods", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "card_token"
     t.string "card_last_four"
     t.datetime "created_at", null: false
@@ -25,7 +28,7 @@ ActiveRecord::Schema.define(version: 20170903194512) do
     t.string "day_of_week"
     t.time "time"
     t.integer "price"
-    t.integer "venue_id"
+    t.bigint "venue_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
@@ -34,8 +37,8 @@ ActiveRecord::Schema.define(version: 20170903194512) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.integer "payment_method_id"
-    t.integer "promotion_id"
+    t.bigint "payment_method_id"
+    t.bigint "promotion_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "confirmation_code"
@@ -64,8 +67,8 @@ ActiveRecord::Schema.define(version: 20170903194512) do
     t.string "city"
     t.string "state"
     t.string "zipcode"
-    t.float "latitude"
-    t.float "longitude"
+    t.decimal "latitude"
+    t.decimal "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
@@ -73,4 +76,8 @@ ActiveRecord::Schema.define(version: 20170903194512) do
     t.index ["email"], name: "index_venues_on_email", unique: true
   end
 
+  add_foreign_key "payment_methods", "users"
+  add_foreign_key "promotions", "venues"
+  add_foreign_key "transactions", "payment_methods"
+  add_foreign_key "transactions", "promotions"
 end
