@@ -15,7 +15,7 @@ $(document).on('turbolinks:load', function() {
     // Populates Neighborhood, City, State
 
     $.ajax({ 
-      url:`http://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${long}&sensor=true`,
+      url:"http://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+long+"&sensor=true",
       success: function(data){
         $('#search').val(data.results[2].formatted_address);
       }
