@@ -9,7 +9,7 @@ $(document).on('turbolinks:load', function() {
     lat = position.coords.latitude
 	  long = position.coords.longitude
 	  
-	  var url = `/venues`
+	  var url = "/venues"
 
     
     // Populates Neighborhood, City, State
@@ -46,7 +46,7 @@ $(document).on('turbolinks:load', function() {
   $('#search-btn').click(function(evt){
   	evt.preventDefault();
   	
-  	var url = `/venues/`
+  	var url = "/venues/"
 
 	  $.ajax({
     	url: url,
