@@ -9,13 +9,13 @@ $(document).on('turbolinks:load', function() {
     lat = position.coords.latitude
 	  long = position.coords.longitude
 	  
-	  var url = `/venues`
+	  var url = "/venues"
 
     
     // Populates Neighborhood, City, State
 
     $.ajax({ 
-      url:`http://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${long}&sensor=true`,
+      url:"http://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+long+"&sensor=true",
       success: function(data){
         $('#search').val(data.results[2].formatted_address);
       }
@@ -46,7 +46,7 @@ $(document).on('turbolinks:load', function() {
   $('#search-btn').click(function(evt){
   	evt.preventDefault();
   	
-  	var url = `/venues/`
+  	var url = "/venues/"
 
 	  $.ajax({
     	url: url,
