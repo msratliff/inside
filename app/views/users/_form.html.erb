@@ -13,7 +13,12 @@
   	<div class="row">
   		<div class="col-md-offset-3 col-md-12">
       	<div>
-        <div id="signuptext"><h3>Sign up for Git In It</h3></div>
+          <% if current_user %>
+          <div id="signuptext"><h3>Edit your account</h3></div>
+          <% else %>
+            <div id="signuptext"><h3>Sign up for Git In It</h3></div>
+          <% end %>
+
           <!-- <b><h4>Sign up with Facebook</h4></b> -->
 
 

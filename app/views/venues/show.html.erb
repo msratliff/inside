@@ -1,4 +1,3 @@
-
 <div class="venue-map-container">
   <div class="row">
 		<div class="venue-info-container col-lg-5 col-xs-12">
@@ -32,12 +31,6 @@
 			</div>
 
 		</div>
-  <div class="col-md-4 ml-auto">
-		<iframe class="venue_google_map" id="googlemap"
-			src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBYl8v-DaqCf5siEpRbhdbufAIvt4_T6jQ
-			&q=<%= @venue.address %>" allowfullscreen>
-	  </iframe></div>
-  </div>
 
 		<div class="map-container col-lg-5 col-xs-12">
 			<iframe class="venue_google_map"
@@ -45,19 +38,7 @@
 			&q=<%= @venue.address %>" allowfullscreen></iframe>
 		</div>
 	</div>
-  <div class="col-md-3 float-right">
-		<% @promotions.each do |promotion| %>
-			<div class="row" id="promotionbuttons">
-				<%= link_to venue_promotion_path(@venue,promotion), remote: true do %>
-					<div class="venue-button col-md-12">
-						<%= number_to_currency(promotion.price) %> - <%= promotion.name %> - <%= promotion.description %>
-					</div>
-				<% end %>
-
-				<% if current_venue %>
-					<%= link_to edit_venue_promotion_path(@venue,promotion), remote: true  do %>
-						<i class="fa fa-pencil" aria-hidden="true"></i>
-					<% end %>
+</div>
 
 <div class="promotionscontainer col-lg-9 col-xs-9">
 	<div class="row">
