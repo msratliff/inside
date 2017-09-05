@@ -18,13 +18,15 @@
   }
 
   #edit-form-promotion{
-    width: 400px;
+    width: 200px;
     margin-left: 260px;
     background-color: #1f2d27;
     padding-bottom: 20px;
     padding-top: 10px;
     border-radius: 10px;
   }
+
+
 
   #edit-form-submit{
     margin-left: 110px;
@@ -33,30 +35,34 @@
 
   #venueheading {
     font-size: 300%;
-    margin-left: 360px;
+    margin-left: 160px;
     display: inline;
     margin-top: 200px;
     // margin-right: 200px;
   }
 
   #googlemap {
-    width: 500px;
-    height: 500px;
-    float: right;
-    margin-right: 100px;
-    // margin-top: 200px;
+    width: 400px;
+    height: 400px;
+    margin-left: 100px;
+    margin-top: 200px;
     margin: 0;
 
   }
-
-  .venue-address{
-    margin-top: 30px;
-    margin-left: 390px;
-  }
+  //
+    .venue-address{
+      margin-top: 30px;
+      margin-left: 200px;
+    }
   #venue-description-display {
-    margin-left: 220px;
-    margin-top: 30px;
+    margin-left: 160px;
+    margin-top: 20px;
       // text-align: center;
+  }
+
+  #desc-edit {
+    margin-left: 250px;
+    margin-top: 20px;
   }
 
   #edit-buttons{
@@ -65,9 +71,11 @@
     font-size: 120%;
   }
 
-  #desc-edit {
-    margin-left: 10px;
+  #promotion-select-buttons{
+    display: flex;
+    align-items: center;
   }
+
 
   #promotionbuttons {
     margin-left: 365px;
@@ -80,11 +88,9 @@
   }
 
   #promotion-form{
-    margin-left: 120px;
-    background-color:  #1f2d27;
-    margin-bottom: 100px;
-    border-radius: 10px;
-    // padding-bottom: 30px;
+
+
+
 
   }
 
@@ -109,13 +115,26 @@
     margin-left: 135px;
   }
 
-#navbarSupportedContent > ul > li:nth-child(1) > a{
-  color: white;
+  #navbarSupportedContent > ul > li:nth-child(1) > a{
+    color: white;
+  }
+
+  #navbarSupportedContent > ul > li:nth-child(2) > a{
+    color: white;
+  }
+
+  promotion buttons on the bottom of this page
+  .wrap-the-button {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #buttons-move{
+    margin-left: 200px;
+  }
+
 }
 
-#navbarSupportedContent > ul > li:nth-child(2) > a{
-  color: white;
-}
-
+@media screen and (max-width: 736px){
 
 }
