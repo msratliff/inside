@@ -1,63 +1,50 @@
-@media screen and (max-width: 736px){
+.venue-heading {
+  width: 100%;
+  font-size: 3rem;
+  text-align: center;
+  margin: auto;
+}
 
-  #googlemap{
-    width: 100%;
-    border-radius: 10px;
-    margin-top: 5px;
-  }
+.venue-address {
+  margin: auto;
+  text-align: center;
+  width: 50%;
+}
 
-  .venueshowcontainer{
-    background-color: #1f2d27;
-    width: 100%;
-    // margin-top: 10px;
-    // margin-left: 0 auto;
-    // border-radius: 10px;
-    color: white;
-    text-align: center;
-  }
-  #exampleModal{
-    position:absolute;
-    overflow-y: auto;
-    max-height: 400px;
-    padding: 15px;
-    margin-top: 20 0px;
-    text-align: center;
-    margin-top: 20px;
 
-  }
+.venue-description {
+  margin: auto;
+  text-align: left;
+  width: 50%; 
+  display: flex;
+}
 
-  #exampleModal > div > div > div.modal-body{
-    background-color: black;
-    color: white;
-  }
+.venue_google_map {
+  width: 100%;
+  height: 50vw;
+  max-width: 600px;
+  max-height: 600px; 
+}
 
-  #venueheading{
-    color: white;
-    font-size: 200%;
-    text-align: center;
-    background-color: #1f2d27;
-    color: #30c17d;
+.promotionscontainer {
+  margin: auto;
+}
 
-  }
-  // modal body text
-  #exampleModal > div > div > div.modal-body > div > form > article > label{
-    // border-style: solid;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background-color: black;
-    // border-color: #30c17d;
-    color: #30c17d;
+.promotion-form {
+  width: 50vw;
+  margin: auto;
+  padding: auto;
+}
 
-  }
- // modal header
-  #exampleModal > div > div > div.modal-header{
-    background-color: black;
-    color: #30c17d;
+#select-day-time {
+  color: white !important;
+}
 
-  }
-  // modal closeout button
-  #exampleModal > div > div > div.modal-header > button{
-    color: #30c17d;
-  }
-
+.promotion-link-on-venue {
+  width: 75%;
+  margin: auto;
+  margin-top: 1rem;
+  border-radius: 5px;
+  color: white;
+  background-color: #1f2d27;
 }
