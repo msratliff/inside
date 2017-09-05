@@ -1,18 +1,23 @@
+<div class="user-show-page">
 
-<%= @user.name %>
-<%= @user.email %>
+	<h5><%= @user.name %><br></h5>
+	<h5><%= @user.email %><br></h5>
 
-<% if current_user %>
-	<%= link_to "Edit Account", edit_users_path, remote: true %>
-<% end %>
 
-<% @user.transactions.each do |transaction| %>
-	<%= transaction.created_at %>
-  <%= transaction.promotion.venue.name %>
-  <%= transaction.promotion.name %>
-	<%= transaction.promotion.price %>
-  <%= transaction.promotion.description %>
-<% end %>
+		<% @user.transactions.each do |transaction| %>
+		<%= link_to charge_path(transaction) do %>
+
+		<div id="past-transactions">
+			<div id="trans-time">Purchased at <%= transaction.created_at.strftime('%m/%d/%Y - %l:%M %P') %></div>
+	  	<h4><%= transaction.promotion.venue.name %><br></h4>
+	  	<%= transaction.promotion.name %><br>
+			<div id="trans-price"><h4>$<%= transaction.promotion.price %></h4></div>
+	  	<div><%= transaction.promotion.description %><br></div>
+		</div>
+			<% end %>
+		<% end %>
+
+</div>
 
 
 <!-- Modal -->
