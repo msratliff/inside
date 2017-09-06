@@ -6,10 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
-User.destroy_all
+Transaction.destroy_all
+PaymentMethod.destroy_all
 Promotion.destroy_all
+User.destroy_all
 Venue.destroy_all
+
 
 user1 = User.create(name: "Einar Montalvo", email: "einar.m@hiringpartner.co", password_digest: Faker::Internet.password(5, 6))
 paymeth = PaymentMethod.create(user_id: user1.id, card_token: Faker::Commerce.promotion_code, card_last_four: "4242")
